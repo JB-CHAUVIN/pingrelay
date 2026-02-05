@@ -1,29 +1,29 @@
+"use client";
+
+import { useDictionary } from "@/i18n/dictionary-provider";
+
 // A useful component when your product is challenging the status quo.
 // Highlight the current pain points (left) and how your product is solving them (right)
 // Try to match the lines from left to right, so the user can easily compare the two columns
 const WithWithout = () => {
+  const { dict } = useDictionary();
+
   return (
     <section className="bg-base-100">
       <div className="max-w-5xl mx-auto px-8 py-16 md:py-32 ">
         <h2 className="text-center font-extrabold text-3xl md:text-5xl tracking-tight mb-12 md:mb-20">
-          Marre de perdre vos participants en route ?
+          {dict.withWithout.title}
         </h2>
 
         <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-8 md:gap-12">
           <div className="bg-error/20 text-error p-8 md:p-12 rounded-lg w-full ">
             <h3 className="font-bold text-lg mb-4">
-              Sans PingRelay
+              {dict.withWithout.without}
             </h3>
 
             <ul className="list-disc list-inside space-y-1.5 ">
               {/* Pains the user is experiencing by not using your product */}
-              {[
-                "Envoi manuel de chaque rappel",
-                "Oublis fréquents de messages importants",
-                "Taux d'absentéisme élevé (30-50%)",
-                "Impossible de personnaliser à grande échelle",
-                "Aucune statistique sur l'engagement",
-              ].map((item, index) => (
+              {dict.withWithout.withoutPoints.map((item, index) => (
                 <li key={index} className="flex gap-2 items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -41,18 +41,12 @@ const WithWithout = () => {
 
           <div className="bg-success/20 text-success p-8 md:p-12 rounded-lg w-full">
             <h3 className="font-bold text-lg mb-4">
-              Avec PingRelay
+              {dict.withWithout.with}
             </h3>
 
             <ul className="list-disc list-inside space-y-1.5 ">
               {/* Features of your product fixing the pain (try to match each with/withot lines) */}
-              {[
-                "Messages automatiques programmés",
-                "Aucun oubli, tout est automatisé",
-                "Taux de participation jusqu'à 85%",
-                "Personnalisation automatique pour chaque participant",
-                "Statistiques détaillées en temps réel",
-              ].map((item, index) => (
+              {dict.withWithout.withPoints.map((item, index) => (
                 <li key={index} className="flex gap-2 items-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

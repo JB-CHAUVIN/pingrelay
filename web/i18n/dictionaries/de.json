@@ -1,0 +1,270 @@
+{
+  "nav": {
+    "features": "Funktionen",
+    "pricing": "Preise",
+    "faq": "Häufige Fragen",
+    "signin": "Anmelden",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "title": "Automatisieren Sie Ihre WhatsApp-Nachrichten",
+    "titleSuffix": "für Ihre Webinare",
+    "description": "Binden Sie Ihre Teilnehmer vor, während und nach Ihren Webinaren mit personalisierten und automatisierten WhatsApp-Nachrichten ein. Steigern Sie Ihre Teilnahmequote und binden Sie Ihr Publikum.",
+    "cta": "WhatsApp-Automatisierung starten",
+    "socialProof": "Webinare bereits automatisiert"
+  },
+  "features": {
+    "title": "Vollständige WhatsApp-Automatisierung für Ihre Webinare",
+    "subtitle": "Alle Tools, um Ihre Teilnehmer einzubinden und die Anwesenheit bei Ihren Online-Events zu maximieren",
+    "automation": {
+      "title": "Intelligente automatisierte Nachrichten",
+      "description": "Planen Sie Ihre WhatsApp-Erinnerungen vor, während und nach Ihren Webinaren. Die Automatisierung kümmert sich um alles."
+    },
+    "templates": {
+      "title": "Anpassbare Vorlagen",
+      "description": "Erstellen Sie wiederverwendbare Nachrichtenvorlagen mit Variablen. Sparen Sie Zeit bei jedem Webinar."
+    },
+    "scheduling": {
+      "title": "Flexible Planung",
+      "description": "Senden Sie Ihre Nachrichten zum perfekten Zeitpunkt: 1 Tag vorher, 1 Stunde vorher oder während des Webinars."
+    },
+    "whatsapp": {
+      "title": "Direkt auf WhatsApp",
+      "description": "Ihre Teilnehmer erhalten die Nachrichten dort, wo sie bereits sind: in ihrer bevorzugten WhatsApp-App."
+    },
+    "analytics": {
+      "title": "Versandverfolgung",
+      "description": "Sehen Sie in Echtzeit, welche Nachrichten gesendet, zugestellt wurden und eventuelle Fehler."
+    },
+    "multiWebinar": {
+      "title": "Multi-Webinare",
+      "description": "Verwalten Sie mehrere Webinare gleichzeitig mit unabhängigen Vorlagen und Planungen."
+    }
+  },
+  "problem": {
+    "title": "70% der Webinare verlieren ihre Teilnehmer aufgrund mangelnden Engagements",
+    "subtitle": "Manuelle Erinnerungen, vergessene Nachrichten, Teilnehmer, die sich abmelden... Die Organisation ist zeitaufwendig und die Ergebnisse sind enttäuschend.",
+    "step1": "Zeitaufwändige manuelle Erinnerungen",
+    "step2": "Niedrige Teilnahmequote oder Fehlerrisiko",
+    "step3": "Enttäuschender ROI"
+  },
+  "withWithout": {
+    "title": "Müde, Ihre Teilnehmer unterwegs zu verlieren?",
+    "without": "Ohne PingRelay",
+    "with": "Mit PingRelay",
+    "withoutPoints": [
+      "Manuelles Versenden jeder Erinnerung",
+      "Häufiges Vergessen wichtiger Nachrichten",
+      "Hohe Abwesenheitsrate (30-50%)",
+      "Unmöglich im großen Maßstab zu personalisieren",
+      "Keine Statistiken zum Engagement"
+    ],
+    "withPoints": [
+      "Automatische geplante Nachrichten",
+      "Keine Vergesslichkeit, alles ist automatisiert",
+      "Teilnahmequote bis zu 85%",
+      "Automatische Personalisierung für jeden Teilnehmer",
+      "Detaillierte Statistiken in Echtzeit"
+    ]
+  },
+  "pricing": {
+    "title": "Preise",
+    "subtitle": "Automatisieren Sie Ihre Webinare und steigern Sie Ihr Engagement dank WhatsApp!",
+    "popular": "BELIEBT",
+    "payOnce": "Einmal zahlen. Lebenslanger Zugang.",
+    "usd": "USD"
+  },
+  "faq": {
+    "title": "FAQ",
+    "heading": "Häufig gestellte Fragen",
+    "questions": [
+      {
+        "q": "Wie funktioniert PingRelay?",
+        "a": "PingRelay sendet automatisch personalisierte WhatsApp-Nachrichten an Ihre Teilnehmer vor, während und nach Ihren Webinaren. Sie programmieren Ihre Nachrichten einmal (Erinnerungen, Zugang, Replay…), und PingRelay kümmert sich um den Versand zum richtigen Zeitpunkt."
+      },
+      {
+        "q": "Kann ich die automatischen Nachrichten personalisieren?",
+        "a": "Absolut. Sie können Ihre eigenen Nachrichtenvorlagen mit personalisierten Variablen erstellen (Name, Webinar-Datum, Zugriffslink, Replay usw.). Die Variablen werden automatisch für jeden Teilnehmer ersetzt."
+      },
+      {
+        "q": "Ist es mit den WhatsApp-Regeln konform?",
+        "a": "Die Nachrichten werden über eine auf WhatsApp Web basierende Technologie gesendet. Es werden Sicherheitsregeln und Best Practices angewendet, um die Risiken einer Einschränkung oder Sperrung zu minimieren."
+      },
+      {
+        "q": "Müssen die Teilnehmer ihre Zustimmung gegeben haben?",
+        "a": "Ja. PingRelay ist so konzipiert, dass es nur mit Kontakten verwendet wird, die ausdrücklich zugestimmt haben, Ihre Nachrichten zu erhalten (Webinar-Anmeldung, Opt-in, bestehende Beziehung)."
+      },
+      {
+        "q": "Wie viele Nachrichten kann ich senden?",
+        "a": "Das Versandvolumen hängt von Ihrer Nutzung und dem gewählten Plan ab. Es werden intelligente Limits angewendet, um die Sicherheit Ihres WhatsApp-Kontos zu wahren."
+      },
+      {
+        "q": "Sind meine Daten sicher?",
+        "a": "Ja. Die Daten werden ausschließlich für den Nachrichtenversand verwendet und niemals weiterverkauft. Wir wenden Sicherheitsmaßnahmen an, um Ihre Informationen und die Ihrer Teilnehmer zu schützen."
+      },
+      {
+        "q": "Kann ich die Automatisierung jederzeit stoppen?",
+        "a": "Natürlich. Sie können Ihre Kampagnen jederzeit von Ihrem Dashboard aus aktivieren, deaktivieren oder ändern."
+      },
+      {
+        "q": "Kann ich eine Rückerstattung erhalten?",
+        "a": "Ja. Sie können innerhalb von 7 Tagen nach Ihrem Kauf eine Rückerstattung beantragen. Kontaktieren Sie uns einfach per E-Mail und wir werden Ihre Anfrage schnell bearbeiten."
+      },
+      {
+        "q": "Ich habe eine andere Frage",
+        "a": "Kein Problem. Kontaktieren Sie uns per E-Mail unter der am Ende der Seite angegebenen Adresse, wir helfen Ihnen gerne weiter."
+      }
+    ]
+  },
+  "footer": {
+    "links": "LINKS",
+    "legal": "RECHTLICHES",
+    "support": "Support",
+    "pricing": "Preise",
+    "blog": "Blog",
+    "affiliate": "Partner",
+    "tos": "Nutzungsbedingungen",
+    "privacy": "Datenschutzrichtlinie",
+    "copyright": "Copyright © {year} - Alle Rechte vorbehalten"
+  },
+  "dashboard": {
+    "welcome": "Willkommen bei PingRelay",
+    "description": "Automatisieren Sie Ihre WhatsApp-Nachrichten für Ihre Webinare und Events. Einmal konfigurieren, automatisch versenden.",
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "phones": "Nummern",
+      "templates": "Nachrichtenvorlagen",
+      "schedules": "Planungen",
+      "closeMenu": "Menü schließen"
+    },
+    "phones": "WhatsApp-Telefone",
+    "templates": "Vorlagen",
+    "schedules": "Planungen",
+    "managePhones": "Telefone verwalten",
+    "manageTemplates": "Vorlagen verwalten",
+    "manageSchedules": "Planungen verwalten",
+    "getStarted": "Starten Sie in 3 Schritten",
+    "step1": {
+      "title": "Telefon hinzufügen",
+      "description": "Verbinden Sie eine oder mehrere WhatsApp-Nummern, die Ihre Nachrichten automatisch versenden.",
+      "cta": "Telefon hinzufügen"
+    },
+    "step2": {
+      "title": "Vorlage erstellen",
+      "description": "Konfigurieren Sie Ihre Nachrichten mit ihren Sendezeiten (vor, während, nach dem Event).",
+      "cta": "Vorlage erstellen"
+    },
+    "step3": {
+      "title": "Versand planen",
+      "description": "Verknüpfen Sie eine Vorlage mit einer WhatsApp-Gruppe und einem Event-Datum. Das war's!",
+      "cta": "Planung erstellen"
+    },
+    "autoSending": {
+      "title": "Automatischer Versand",
+      "description": "Jede Minute überprüft unser System die zu sendenden Nachrichten und sendet sie automatisch über WhatsApp für Sie."
+    },
+    "activeWebinars": "Aktive Webinare",
+    "viewAll": "Alle anzeigen",
+    "progress": "Fortschritt",
+    "pending": "ausstehend",
+    "failed": "fehlgeschlagen",
+    "details": "Details",
+    "noActiveWebinars": "Keine aktiven Webinare",
+    "noActiveWebinarsDesc": "Erstellen Sie eine neue Planung, um den automatischen Versand Ihrer WhatsApp-Nachrichten zu starten.",
+    "createSchedule": "Planung erstellen"
+  },
+  "phones": {
+    "title": "WhatsApp-Telefone",
+    "pageTitle": "Telefonnummern",
+    "pageDescription": "Verwalten Sie Ihre Nummern für die WhatsApp-Automatisierung",
+    "addNumber": "Nummer hinzufügen",
+    "connectionSuccess": "WhatsApp erfolgreich verbunden!",
+    "deleteConfirmTitle": "Nummer löschen",
+    "deleteConfirmMessage": "Sind Sie sicher, dass Sie diese Telefonnummer löschen möchten? Diese Aktion ist unwiderruflich.",
+    "addPhone": "Telefon hinzufügen",
+    "phoneNumber": "Telefonnummer",
+    "status": "Status",
+    "actions": "Aktionen",
+    "connect": "Verbinden",
+    "disconnect": "Trennen",
+    "delete": "Löschen",
+    "connected": "Verbunden",
+    "disconnected": "Getrennt",
+    "qrCodeTitle": "WhatsApp verbinden",
+    "scanQR": "QR-Code scannen",
+    "waiting": "Warten auf Scan..."
+  },
+  "templates": {
+    "title": "Nachrichtenvorlagen",
+    "pageTitle": "Nachrichtenvorlagen",
+    "pageDescription": "Erstellen Sie Nachrichtensequenzen für Ihre Automatisierungskampagnen",
+    "createTemplate": "Vorlage erstellen",
+    "deleteConfirmTitle": "Vorlage löschen",
+    "deleteConfirmMessage": "Sind Sie sicher, dass Sie diese Vorlage löschen möchten? Diese Aktion ist unwiderruflich.",
+    "addTemplate": "Vorlage erstellen",
+    "templateName": "Vorlagenname",
+    "messages": "Nachrichten",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "noTemplates": "Keine Vorlagen",
+    "noTemplatesDesc": "Erstellen Sie Ihre erste Vorlage, um zu beginnen",
+    "createTemplate": "Vorlage erstellen"
+  },
+  "schedules": {
+    "title": "Planungen",
+    "pageTitle": "Planung",
+    "pageDescription": "Planen Sie Ihre Nachrichtenkampagnen für Ihre Events",
+    "createSchedule": "Planung erstellen",
+    "variablesLabel": "Variablen:",
+    "deleteConfirmTitle": "Planung löschen",
+    "deleteConfirmMessage": "Sind Sie sicher, dass Sie diese Planung löschen möchten? Diese Aktion ist unwiderruflich.",
+    "detailsErrorLoad": "Planungsdetails konnten nicht geladen werden",
+    "detailsErrorUnknown": "Unbekannter Fehler",
+    "detailsBackButton": "Zurück zu Planungen",
+    "detailsAutoRefresh": "Auto-Aktualisierung",
+    "detailsRefreshButton": "Aktualisieren",
+    "detailsScheduledMessages": "Geplante Nachrichten",
+    "addSchedule": "Planung erstellen",
+    "groupName": "Gruppenname",
+    "template": "Vorlage",
+    "eventDate": "Event-Datum",
+    "status": "Status",
+    "variables": "Variablen",
+    "actions": "Aktionen",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "pending": "Nicht gestartet",
+    "running": "Läuft",
+    "completed": "Abgeschlossen",
+    "failed": "Fehlgeschlagen",
+    "noSchedules": "Keine Planungen",
+    "noSchedulesDesc": "Erstellen Sie Ihre erste Planung, um zu beginnen"
+  },
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "create": "Erstellen",
+    "update": "Aktualisieren",
+    "close": "Schließen",
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "confirm": "Bestätigen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "export": "Exportieren",
+    "import": "Importieren"
+  },
+  "seo": {
+    "home": {
+      "title": "PingRelay - WhatsApp-Automatisierung für Webinare | Automatische Nachrichten",
+      "description": "Automatisieren Sie Ihre WhatsApp-Nachrichten für Webinare. Versenden Sie automatische Erinnerungen, steigern Sie Ihre Teilnahmequote und binden Sie Ihre Teilnehmer vor, während und nach Ihren Online-Events ein. Kostenloser Test."
+    },
+    "dashboard": {
+      "title": "Dashboard - PingRelay",
+      "description": "Verwalten Sie Ihre automatisierten Webinare, WhatsApp-Vorlagen und Nachrichtenplanungen von Ihrem PingRelay-Dashboard aus."
+    }
+  }
+}

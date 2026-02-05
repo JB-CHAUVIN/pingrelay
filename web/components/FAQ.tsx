@@ -2,107 +2,15 @@
 
 import { useRef, useState } from "react";
 import type { JSX } from "react";
+import { useDictionary } from "@/i18n/dictionary-provider";
 
 // <FAQ> component is a lsit of <Item> component
 // Just import the FAQ & add your FAQ content to the const faqList arrayy below.
 
 interface FAQItemProps {
   question: string;
-  answer: JSX.Element;
+  answer: string;
 }
-
-const faqList: FAQItemProps[] = [
-  {
-    question: "Comment fonctionne PingRelay ?",
-    answer: (
-      <div className="space-y-2 leading-relaxed">
-        PingRelay envoie automatiquement des messages WhatsApp personnalisés à
-        vos participants avant, pendant et après vos webinaires. Vous programmez
-        vos messages une seule fois (rappels, accès, replay…), et PingRelay
-        s’occupe de l’envoi au bon moment.
-      </div>
-    ),
-  },
-  {
-    question: "Puis-je personnaliser les messages automatiques ?",
-    answer: (
-      <p>
-        Absolument. Vous pouvez créer vos propres modèles de messages avec des
-        variables personnalisées (prénom, date du webinaire, lien d’accès,
-        replay, etc.). Les variables sont automatiquement remplacées pour chaque
-        participant.
-      </p>
-    ),
-  },
-  {
-    question: "Est-ce conforme aux règles WhatsApp ?",
-    answer: (
-      <p>
-        Les messages sont envoyés via une technologie s’appuyant sur WhatsApp
-        Web. Des règles de sécurité et de bonnes pratiques sont appliquées afin
-        de réduire au maximum les risques de restriction ou de bannissement.
-      </p>
-    ),
-  },
-  {
-    question: "Les participants doivent-ils avoir donné leur accord ?",
-    answer: (
-      <p>
-        Oui. PingRelay est conçu pour être utilisé uniquement avec des contacts
-        ayant explicitement accepté de recevoir vos messages (inscription à un
-        webinaire, opt-in, relation existante).
-      </p>
-    ),
-  },
-  {
-    question: "Combien de messages puis-je envoyer ?",
-    answer: (
-      <p>
-        Le volume d’envoi dépend de votre utilisation et du plan choisi. Des
-        limites intelligentes sont appliquées afin de préserver la sécurité de
-        votre compte WhatsApp.
-      </p>
-    ),
-  },
-  {
-    question: "Mes données sont-elles sécurisées ?",
-    answer: (
-      <p>
-        Oui. Les données sont utilisées uniquement pour l’envoi des messages et
-        ne sont jamais revendues. Nous appliquons des mesures de sécurité pour
-        protéger vos informations et celles de vos participants.
-      </p>
-    ),
-  },
-  {
-    question: "Puis-je arrêter l’automatisation à tout moment ?",
-    answer: (
-      <p>
-        Bien sûr. Vous pouvez activer, désactiver ou modifier vos campagnes à
-        tout moment depuis votre tableau de bord.
-      </p>
-    ),
-  },
-  {
-    question: "Puis-je obtenir un remboursement ?",
-    answer: (
-      <p>
-        Oui. Vous pouvez demander un remboursement dans les 7 jours suivant
-        votre achat. Il suffit de nous contacter par email et nous traiterons
-        votre demande rapidement.
-      </p>
-    ),
-  },
-  {
-    question: "J'ai une autre question",
-    answer: (
-      <div className="space-y-2 leading-relaxed">
-        Pas de souci. Contactez-nous par email à l’adresse indiquée en bas de
-        page, nous serons ravis de vous aider.
-      </div>
-    ),
-  },
-];
 
 const FaqItem = ({ item }: { item: FAQItemProps }) => {
   const accordion = useRef(null);
@@ -165,13 +73,20 @@ const FaqItem = ({ item }: { item: FAQItemProps }) => {
 };
 
 const FAQ = () => {
+  const { dict } = useDictionary();
+
+  const faqList: FAQItemProps[] = dict.faq.questions.map((item) => ({
+    question: item.q,
+    answer: item.a,
+  }));
+
   return (
     <section className="bg-base-200" id="faq">
       <div className="py-24 px-8 max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
         <div className="flex flex-col text-left basis-1/2">
-          <p className="inline-block font-semibold text-primary mb-4">FAQ</p>
+          <p className="inline-block font-semibold text-primary mb-4">{dict.faq.title}</p>
           <p className="sm:text-4xl text-3xl font-extrabold text-base-content">
-            Questions Fréquentes
+            {dict.faq.heading}
           </p>
         </div>
 

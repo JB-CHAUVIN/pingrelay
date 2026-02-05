@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useDictionary } from "@/i18n/dictionary-provider";
 
 const avatars: {
   alt: string;
@@ -28,6 +31,8 @@ const avatars: {
 ];
 
 const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
+  const { dict } = useDictionary();
+
   return (
     <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-3">
       {/* AVATARS */}
@@ -66,7 +71,7 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
         </div>
 
         <div className="text-base text-base-content/80">
-          <span className="font-semibold text-base-content">32</span> webinars déjà automatisés
+          <span className="font-semibold text-base-content">32</span> {dict.hero.socialProof}
         </div>
       </div>
     </div>

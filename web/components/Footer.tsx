@@ -1,12 +1,17 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import config from "@/config";
 import logo from "@/app/icon.png";
+import { useDictionary } from "@/i18n/dictionary-provider";
 
 // Add the Footer to the bottom of your landing page and more.
 // The support link is connected to the config.js file. If there's no config.resend.supportEmail, the link won't be displayed.
 
 const Footer = () => {
+  const { dict, lang } = useDictionary();
+
   return (
     <footer className="bg-base-200 border-t border-base-content/10">
       <div className="max-w-7xl mx-auto px-8 py-24">
@@ -34,13 +39,13 @@ const Footer = () => {
               {config.appDescription}
             </p>
             <p className="mt-3 text-sm text-base-content/60">
-              Copyright © {new Date().getFullYear()} - Tous droits réservés
+              {dict.footer.copyright.replace("{year}", new Date().getFullYear().toString())}
             </p>
           </div>
           <div className="flex-grow flex flex-wrap justify-center -mb-10 md:mt-0 mt-10 text-center">
             <div className="lg:w-1/3 md:w-1/2 w-full px-4">
               <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">
-                LIENS
+                {dict.footer.links}
               </div>
 
               <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
@@ -51,32 +56,32 @@ const Footer = () => {
                     className="link link-hover"
                     aria-label="Contact Support"
                   >
-                    Support
+                    {dict.footer.support}
                   </a>
                 )}
-                <Link href="/#pricing" className="link link-hover">
-                  Tarifs
+                <Link href={`/${lang}/#pricing`} className="link link-hover">
+                  {dict.footer.pricing}
                 </Link>
-                <Link href="/blog" className="link link-hover">
-                  Blog
+                <Link href={`/${lang}/blog`} className="link link-hover">
+                  {dict.footer.blog}
                 </Link>
                 <a href="/#" target="_blank" className="link link-hover">
-                  Affiliation
+                  {dict.footer.affiliate}
                 </a>
               </div>
             </div>
 
             <div className="lg:w-1/3 md:w-1/2 w-full px-4">
               <div className="footer-title font-semibold text-base-content tracking-widest text-sm md:text-left mb-3">
-                LEGAL
+                {dict.footer.legal}
               </div>
 
               <div className="flex flex-col justify-center items-center md:items-start gap-2 mb-10 text-sm">
-                <Link href="/tos" className="link link-hover">
-                  Conditions d&apos;utilisation
+                <Link href={`/${lang}/tos`} className="link link-hover">
+                  {dict.footer.tos}
                 </Link>
-                <Link href="/privacy-policy" className="link link-hover">
-                  Politique de confidentialité
+                <Link href={`/${lang}/privacy-policy`} className="link link-hover">
+                  {dict.footer.privacy}
                 </Link>
               </div>
             </div>

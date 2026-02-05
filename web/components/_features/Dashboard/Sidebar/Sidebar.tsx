@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useDictionary } from "@/i18n/dictionary-provider";
 
 const selectedClass = "bg-gray-100";
 
@@ -12,6 +13,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isOpen = true, onClose }) => {
   const path = usePathname();
+  const { dict, lang } = useDictionary();
 
   const isSelected = (name: string) => {
     return path === name;
@@ -48,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen = true, onClose }) => {
         <button
           onClick={onClose}
           className="md:hidden btn btn-ghost btn-sm btn-square"
-          aria-label="Fermer le menu"
+          aria-label={dict.dashboard.sidebar.closeMenu}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -63,10 +65,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen = true, onClose }) => {
 
       {/* Navigation */}
       <nav className="px-6 space-y-2 flex-1">
-        {renderItem("/dashboard", "🏠", "Tableau de bord")}
-        {renderItem("/dashboard/phones", "📱", "Numéros")}
-        {renderItem("/dashboard/templates", "💬", "Modèles de messages")}
-        {renderItem("/dashboard/schedules", "📅", "Programmation")}
+        {renderItem(`/${lang}/dashboard`, "🏠", dict.dashboard.sidebar.dashboard)}
+        {renderItem(`/${lang}/dashboard/phones`, "📱", dict.dashboard.sidebar.phones)}
+        {renderItem(`/${lang}/dashboard/templates`, "💬", dict.dashboard.sidebar.templates)}
+        {renderItem(`/${lang}/dashboard/schedules`, "📅", dict.dashboard.sidebar.schedules)}
       </nav>
     </div>
   );

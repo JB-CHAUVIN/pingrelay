@@ -1,0 +1,269 @@
+{
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "signin": "Sign in",
+    "dashboard": "Dashboard"
+  },
+  "hero": {
+    "title": "Automate your WhatsApp messages",
+    "titleSuffix": "for webinars",
+    "description": "Engage your attendees before, during and after your webinars with personalized automated WhatsApp messages. Boost your attendance rate and build audience loyalty.",
+    "cta": "Start WhatsApp Automation",
+    "socialProof": "webinars already automated"
+  },
+  "features": {
+    "title": "Complete WhatsApp automation for webinars",
+    "subtitle": "All the tools to engage your participants and maximize attendance at your online events",
+    "automation": {
+      "title": "Smart automated messages",
+      "description": "Schedule your WhatsApp reminders before, during and after your webinars. Automation takes care of everything."
+    },
+    "templates": {
+      "title": "Customizable templates",
+      "description": "Create reusable message templates with variables. Save time on every webinar."
+    },
+    "scheduling": {
+      "title": "Flexible scheduling",
+      "description": "Send your messages at the perfect time: 1 day before, 1 hour before, or during the webinar."
+    },
+    "whatsapp": {
+      "title": "Directly on WhatsApp",
+      "description": "Your participants receive messages where they already are: on their preferred WhatsApp messenger."
+    },
+    "analytics": {
+      "title": "Send tracking",
+      "description": "View in real-time which messages were sent, delivered and any errors."
+    },
+    "multiWebinar": {
+      "title": "Multi-webinars",
+      "description": "Manage multiple webinars simultaneously with independent templates and schedules."
+    }
+  },
+  "problem": {
+    "title": "70% of webinars lose participants due to lack of engagement",
+    "subtitle": "Manual reminders, forgotten messages, participants unsubscribing... Organization is time-consuming and results disappointing.",
+    "step1": "Time-consuming manual reminders",
+    "step2": "Low participation rate or risk of error",
+    "step3": "Disappointing ROI"
+  },
+  "withWithout": {
+    "title": "Tired of losing your participants along the way?",
+    "without": "Without PingRelay",
+    "with": "With PingRelay",
+    "withoutPoints": [
+      "Manual sending of each reminder",
+      "Frequent forgetting of important messages",
+      "High absenteeism rate (30-50%)",
+      "Impossible to personalize at scale",
+      "No engagement statistics"
+    ],
+    "withPoints": [
+      "Scheduled automatic messages",
+      "No forgetting, everything is automated",
+      "Participation rate up to 85%",
+      "Automatic personalization for each participant",
+      "Detailed statistics in real time"
+    ]
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Automate your webinars and boost your engagement with WhatsApp!",
+    "popular": "POPULAR",
+    "payOnce": "Pay once. Lifetime access.",
+    "usd": "USD"
+  },
+  "faq": {
+    "title": "FAQ",
+    "heading": "Frequently Asked Questions",
+    "questions": [
+      {
+        "q": "How does PingRelay work?",
+        "a": "PingRelay automatically sends personalized WhatsApp messages to your participants before, during and after your webinars. You schedule your messages once (reminders, access, replay...), and PingRelay takes care of sending them at the right time."
+      },
+      {
+        "q": "Can I customize the automatic messages?",
+        "a": "Absolutely. You can create your own message templates with custom variables (first name, webinar date, access link, replay, etc.). Variables are automatically replaced for each participant."
+      },
+      {
+        "q": "Is it compliant with WhatsApp rules?",
+        "a": "Messages are sent via technology based on WhatsApp Web. Security rules and best practices are applied to minimize the risk of restriction or ban."
+      },
+      {
+        "q": "Do participants need to have given their consent?",
+        "a": "Yes. PingRelay is designed to be used only with contacts who have explicitly agreed to receive your messages (webinar registration, opt-in, existing relationship)."
+      },
+      {
+        "q": "How many messages can I send?",
+        "a": "The sending volume depends on your usage and the chosen plan. Smart limits are applied to preserve your WhatsApp account security."
+      },
+      {
+        "q": "Is my data secure?",
+        "a": "Yes. Data is used only for sending messages and is never resold. We apply security measures to protect your information and that of your participants."
+      },
+      {
+        "q": "Can I stop automation at any time?",
+        "a": "Of course. You can activate, deactivate or modify your campaigns at any time from your dashboard."
+      },
+      {
+        "q": "Can I get a refund?",
+        "a": "Yes. You can request a refund within 7 days of your purchase. Just contact us by email and we will process your request quickly."
+      },
+      {
+        "q": "I have another question",
+        "a": "No problem. Contact us by email at the address indicated at the bottom of the page, we will be happy to help you."
+      }
+    ]
+  },
+  "footer": {
+    "links": "LINKS",
+    "legal": "LEGAL",
+    "support": "Support",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "affiliate": "Affiliate",
+    "tos": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "copyright": "Copyright © {year} - All rights reserved"
+  },
+  "dashboard": {
+    "welcome": "Welcome to PingRelay",
+    "description": "Automate your WhatsApp messages for your webinars and events. Set up once, send automatically.",
+    "sidebar": {
+      "dashboard": "Dashboard",
+      "phones": "Phones",
+      "templates": "Message Templates",
+      "schedules": "Schedules",
+      "closeMenu": "Close menu"
+    },
+    "phones": "WhatsApp Phones",
+    "templates": "Templates",
+    "schedules": "Schedules",
+    "managePhones": "Manage phones",
+    "manageTemplates": "Manage templates",
+    "manageSchedules": "Manage schedules",
+    "getStarted": "Get started in 3 steps",
+    "step1": {
+      "title": "Add a phone",
+      "description": "Connect one or more WhatsApp numbers that will send your messages automatically.",
+      "cta": "Add a phone"
+    },
+    "step2": {
+      "title": "Create a template",
+      "description": "Configure your messages with their send times (before, during, after the event).",
+      "cta": "Create a template"
+    },
+    "step3": {
+      "title": "Schedule sending",
+      "description": "Associate a template with a WhatsApp group and an event date. That's it!",
+      "cta": "Create a schedule"
+    },
+    "autoSending": {
+      "title": "Automatic sending",
+      "description": "Every minute, our system checks messages to send and sends them automatically on WhatsApp for you."
+    },
+    "activeWebinars": "Active webinars",
+    "viewAll": "View all",
+    "progress": "Progress",
+    "pending": "pending",
+    "failed": "failed",
+    "details": "Details",
+    "noActiveWebinars": "No active webinars",
+    "noActiveWebinarsDesc": "Create a new schedule to start automatically sending your WhatsApp messages.",
+    "createSchedule": "Create a schedule"
+  },
+  "phones": {
+    "title": "WhatsApp Phones",
+    "pageTitle": "Phone Numbers",
+    "pageDescription": "Manage your numbers for WhatsApp automation",
+    "addPhone": "Add phone",
+    "addNumber": "Add number",
+    "phoneNumber": "Phone number",
+    "status": "Status",
+    "actions": "Actions",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "delete": "Delete",
+    "connected": "Connected",
+    "disconnected": "Disconnected",
+    "qrCodeTitle": "Connect WhatsApp",
+    "scanQR": "Scan QR code",
+    "waiting": "Waiting for scan...",
+    "connectionSuccess": "WhatsApp connected successfully!",
+    "deleteConfirmTitle": "Delete number",
+    "deleteConfirmMessage": "Are you sure you want to delete this phone number? This action is irreversible."
+  },
+  "templates": {
+    "title": "Message templates",
+    "pageTitle": "Message Templates",
+    "pageDescription": "Create message sequences for your automation campaigns",
+    "addTemplate": "Create template",
+    "createTemplate": "Create template",
+    "templateName": "Template name",
+    "messages": "Messages",
+    "edit": "Edit",
+    "delete": "Delete",
+    "noTemplates": "No templates",
+    "noTemplatesDesc": "Create your first template to get started",
+    "deleteConfirmTitle": "Delete template",
+    "deleteConfirmMessage": "Are you sure you want to delete this template? This action is irreversible."
+  },
+  "schedules": {
+    "title": "Schedules",
+    "pageTitle": "Scheduling",
+    "pageDescription": "Schedule your message campaigns for your events",
+    "addSchedule": "Create schedule",
+    "createSchedule": "Create schedule",
+    "groupName": "Group name",
+    "template": "Template",
+    "eventDate": "Event date",
+    "status": "Status",
+    "variables": "Variables",
+    "variablesLabel": "Variables:",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "pending": "Not started",
+    "running": "Running",
+    "completed": "Completed",
+    "failed": "Failed",
+    "noSchedules": "No schedules",
+    "noSchedulesDesc": "Create your first schedule to get started",
+    "deleteConfirmTitle": "Delete schedule",
+    "deleteConfirmMessage": "Are you sure you want to delete this schedule? This action is irreversible.",
+    "detailsErrorLoad": "Unable to load schedule details",
+    "detailsErrorUnknown": "Unknown error",
+    "detailsBackButton": "Back to schedules",
+    "detailsAutoRefresh": "Auto-refresh",
+    "detailsRefreshButton": "Refresh",
+    "detailsScheduledMessages": "Scheduled messages"
+  },
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "export": "Export",
+    "import": "Import"
+  },
+  "seo": {
+    "home": {
+      "title": "PingRelay - WhatsApp Automation for Webinars | Automatic Messages",
+      "description": "Automate your WhatsApp messages for webinars. Send automatic reminders, boost your attendance rate and engage your participants before, during and after your online events. Free trial."
+    },
+    "dashboard": {
+      "title": "Dashboard - PingRelay",
+      "description": "Manage your automated webinars, WhatsApp templates and message schedules from your PingRelay dashboard."
+    }
+  }
+}

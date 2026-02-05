@@ -6,34 +6,30 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ButtonSignin from "./ButtonSignin";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useDictionary } from "@/i18n/dictionary-provider";
 import logo from "@/app/icon.png";
 import config from "@/config";
-
-const links: {
-  href: string;
-  label: string;
-}[] = [
-  {
-    href: "/#pricing",
-    label: "Tarifs",
-  },
-  {
-    href: "/#testimonials",
-    label: "Avis",
-  },
-  {
-    href: "/#faq",
-    label: "FAQ",
-  },
-];
-
-const cta: JSX.Element = <ButtonSignin extraStyle="btn-primary" />;
 
 // A header with a logo on the left, links in the center (like Pricing, etc...), and a CTA (like Get Started or Login) on the right.
 // The header is responsive, and on mobile, the links are hidden behind a burger button.
 const Header = () => {
+  const { dict, lang } = useDictionary();
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const links: { href: string; label: string }[] = [
+    {
+      href: `/${lang}/#pricing`,
+      label: dict.nav.pricing,
+    },
+    {
+      href: `/${lang}/#faq`,
+      label: dict.nav.faq,
+    },
+  ];
+
+  const cta: JSX.Element = <ButtonSignin extraStyle="btn-primary" />;
 
   // setIsOpen(false) when the route changes (i.e: when the user clicks on a link on mobile)
   useEffect(() => {
@@ -50,7 +46,7 @@ const Header = () => {
         <div className="flex lg:flex-1">
           <Link
             className="flex items-center gap-2 shrink-0 "
-            href="/"
+            href={`/${lang}`}
             title={`${config.appName} homepage`}
           >
             <Image
@@ -104,8 +100,11 @@ const Header = () => {
           ))}
         </div>
 
-        {/* CTA on large screens */}
-        <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
+        {/* CTA and Language Switcher on large screens */}
+        <div className="hidden lg:flex lg:justify-end lg:flex-1 lg:gap-4 lg:items-center">
+          <LanguageSwitcher currentLocale={lang} />
+          {cta}
+        </div>
       </nav>
 
       {/* Mobile menu, show/hide based on menu state. */}
@@ -118,7 +117,7 @@ const Header = () => {
             <Link
               className="flex items-center gap-2 shrink-0 "
               title={`${config.appName} homepage`}
-              href="/"
+              href={`/${lang}`}
             >
               <Image
                 src={logo}
@@ -171,8 +170,11 @@ const Header = () => {
               </div>
             </div>
             <div className="divider"></div>
-            {/* Your CTA on small screens */}
-            <div className="flex flex-col">{cta}</div>
+            {/* Language Switcher and CTA on small screens */}
+            <div className="flex flex-col gap-4">
+              <LanguageSwitcher currentLocale={lang} />
+              {cta}
+            </div>
           </div>
         </div>
       </div>
