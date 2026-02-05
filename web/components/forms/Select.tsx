@@ -47,7 +47,7 @@ const Select: React.FC<SelectProps> = ({
         required={required}
         className={`select select-bordered w-full ${error ? "select-error" : ""}`}
       >
-        {placeholder && <option value="">{placeholder}</option>}
+        {placeholder && !value && <option value="">{placeholder}</option>}
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

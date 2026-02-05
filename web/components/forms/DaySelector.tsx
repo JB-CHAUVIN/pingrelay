@@ -22,10 +22,16 @@ const DaySelector: React.FC<DaySelectorProps> = ({
   className = "",
 }) => {
   const parseValue = (val: string) => {
-    if (val === "0") {
+    // Ensure val is a string
+    const strVal = String(val);
+
+    if (strVal === "0") {
       return { type: "dday", days: "" };
     }
-    const num = parseInt(val);
+    const num = parseInt(strVal);
+    if (isNaN(num)) {
+      return { type: "dday", days: "" };
+    }
     if (num < 0) {
       return { type: "before", days: Math.abs(num).toString() };
     }
@@ -72,6 +78,7 @@ const DaySelector: React.FC<DaySelectorProps> = ({
             { value: "after", label: "After Event" },
           ]}
           disabled={disabled}
+          placeholder=""
           className="flex-1"
         />
         {type !== "dday" && (
