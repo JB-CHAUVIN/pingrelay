@@ -1,23 +1,53 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
 @plugin "daisyui" {
   themes: light --default;
 }
 
-/* ← C'est ICI qu'il faut override primary pour daisyUI */
+/* Charte graphique PingRelay - WhatsApp Green + Live Red */
 @plugin "daisyui/theme" {
-  name: light;           /* le thème que tu modifies (light ici) */
-  default: true;         /* ou --default si tu préfères la syntaxe flag */
+  name: light;
+  default: true;
 
-  --color-primary: #a9ff68;                  /* ta couleur verte fluo */
-  --color-primary-content: oklch(0.288 0.089 142.828);  /* ton contenu (texte) */
+  /* Primary - WhatsApp Green */
+  --color-primary: #25D366;
+  --color-primary-content: #ffffff;
 
-  /* optionnel : tu peux override d'autres si besoin */
-  --color-secondary: #10b981;
-  --color-accent:    #f59e0b;
+  /* Secondary - Live/Webinar Red */
+  --color-secondary: #EF4444;
+  --color-secondary-content: #ffffff;
+
+  /* Accent - Modern Indigo */
+  --color-accent: #6366F1;
+  --color-accent-content: #ffffff;
+
+  /* Success - Emerald Green */
+  --color-success: #10B981;
+  --color-success-content: #ffffff;
+
+  /* Warning - Amber */
+  --color-warning: #F59E0B;
+  --color-warning-content: #ffffff;
+
+  /* Error - Red */
+  --color-error: #DC2626;
+  --color-error-content: #ffffff;
+
+  /* Info - Sky Blue */
+  --color-info: #0EA5E9;
+  --color-info-content: #ffffff;
+
+  /* Neutral colors - Modern grays */
+  --color-base-100: #ffffff;
+  --color-base-200: #F9FAFB;
+  --color-base-300: #E5E7EB;
+  --color-base-content: #1F2937;
 }
 
 @theme {
-  --font-display: "Satoshi", "sans-serif";
+  --font-display: "Inter", "sans-serif";
+  --font-sans: "Inter", "sans-serif";
 
   --animate-shimmer: shimmer 3s ease-out infinite alternate;
   --animate-opacity: opacity 0.25s ease-in-out;
@@ -86,4 +116,46 @@ progress::-webkit-progress-value {
 
 .btn {
   text-transform: capitalize !important;
+}
+
+/* Utility classes for PingRelay branding */
+.whatsapp-gradient {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.live-gradient {
+  background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, #25D366 0%, #6366F1 50%, #EF4444 100%);
+}
+
+/* Smooth card hover effect */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F9FAFB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #25D366;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #128C7E;
 }

@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : modal gray out">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : dashboard">
       <change beforePath="$PROJECT_DIR$/web/app/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleStatusBadge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleStatusBadge.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/components/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/Hero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
       <workItem from="1770115332226" duration="12267000" />
       <workItem from="1770235837502" duration="1869000" />
       <workItem from="1770281387549" duration="5146000" />
-      <workItem from="1770288941894" duration="11479000" />
+      <workItem from="1770288941894" duration="12045000" />
     </task>
     <task id="LOCAL-00001" summary="tech : init project">
       <option name="closed" value="true" />
@@ -130,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770320262473</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat : dashboard">
+      <option name="closed" value="true" />
+      <created>1770321140362</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1770321140362</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +194,7 @@
     <MESSAGE value="feat : many optimizations" />
     <MESSAGE value="feat : better templating handling" />
     <MESSAGE value="feat : modal gray out" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : modal gray out" />
+    <MESSAGE value="feat : dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : dashboard" />
   </component>
 </project>

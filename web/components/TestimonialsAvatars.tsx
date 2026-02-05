@@ -47,13 +47,13 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
 
       {/* RATING */}
       <div className="flex flex-col justify-center items-center md:items-start gap-1">
-        <div className="rating">
+        <div className="flex gap-1">
           {[...Array(5)].map((_, i) => (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5 text-yellow-500"
+              fill="#F59E0B"
+              className="w-5 h-5"
               key={i}
             >
               <path
@@ -66,8 +66,7 @@ const TestimonialsAvatars = ({ priority }: { priority?: boolean }) => {
         </div>
 
         <div className="text-base text-base-content/80">
-          <span className="font-semibold text-base-content">32</span> makers
-          ship faster
+          <span className="font-semibold text-base-content">32</span> webinars déjà automatisés
         </div>
       </div>
     </div>

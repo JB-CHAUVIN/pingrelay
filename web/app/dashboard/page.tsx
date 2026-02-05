@@ -91,11 +91,11 @@ export default async function Dashboard() {
     data.stats.schedules === 0;
 
   return (
-    <main className="min-h-screen bg-base-200">
+    <main className="min-h-screen bg-gradient-to-br from-base-100 via-base-200 to-base-100">
       <div className="max-w-7xl mx-auto p-4 md:p-8 space-y-8">
         {/* Hero Section */}
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold">
+        <div className="text-center space-y-4 py-8">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Bienvenue sur PingRelay
           </h1>
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
@@ -105,8 +105,8 @@ export default async function Dashboard() {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="stat bg-base-100 rounded-lg shadow">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="stat bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-primary">
             <div className="stat-figure text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -131,8 +131,8 @@ export default async function Dashboard() {
             </div>
           </div>
 
-          <div className="stat bg-base-100 rounded-lg shadow">
-            <div className="stat-figure text-secondary">
+          <div className="stat bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-accent">
+            <div className="stat-figure text-accent">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -148,16 +148,16 @@ export default async function Dashboard() {
               </svg>
             </div>
             <div className="stat-title">Templates</div>
-            <div className="stat-value text-secondary">{data.stats.templates}</div>
+            <div className="stat-value text-accent">{data.stats.templates}</div>
             <div className="stat-desc">
-              <Link href="/dashboard/templates" className="link link-secondary">
+              <Link href="/dashboard/templates" className="link link-accent">
                 Gérer les templates
               </Link>
             </div>
           </div>
 
-          <div className="stat bg-base-100 rounded-lg shadow">
-            <div className="stat-figure text-accent">
+          <div className="stat bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-secondary">
+            <div className="stat-figure text-secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -173,9 +173,9 @@ export default async function Dashboard() {
               </svg>
             </div>
             <div className="stat-title">Programmations</div>
-            <div className="stat-value text-accent">{data.stats.schedules}</div>
+            <div className="stat-value text-secondary">{data.stats.schedules}</div>
             <div className="stat-desc">
-              <Link href="/dashboard/schedules" className="link link-accent">
+              <Link href="/dashboard/schedules" className="link link-secondary">
                 Gérer les programmations
               </Link>
             </div>
@@ -184,13 +184,13 @@ export default async function Dashboard() {
 
         {/* Getting Started Section (only for new users) */}
         {isNewUser && (
-          <div className="bg-base-100 rounded-lg shadow-lg p-6 md:p-8">
-            <h2 className="text-2xl font-bold mb-6 text-center">
+          <div className="bg-base-100 rounded-2xl shadow-xl p-6 md:p-8 border border-base-300">
+            <h2 className="text-3xl font-bold mb-8 text-center">
               Commencez en 3 étapes
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Step 1 */}
-              <div className="card bg-primary/10 border-2 border-primary/20">
+              <div className="card bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/30 hover:border-primary/50 transition-all hover:shadow-lg">
                 <div className="card-body items-center text-center">
                   <div className="bg-primary text-primary-content w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
                     1
@@ -212,9 +212,9 @@ export default async function Dashboard() {
               </div>
 
               {/* Step 2 */}
-              <div className="card bg-secondary/10 border-2 border-secondary/20">
+              <div className="card bg-gradient-to-br from-accent/10 to-accent/5 border-2 border-accent/30 hover:border-accent/50 transition-all hover:shadow-lg">
                 <div className="card-body items-center text-center">
-                  <div className="bg-secondary text-secondary-content w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                  <div className="bg-accent text-accent-content w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
                     2
                   </div>
                   <h3 className="card-title text-lg">Créer un template</h3>
@@ -225,7 +225,7 @@ export default async function Dashboard() {
                   <div className="card-actions mt-4">
                     <Link
                       href="/dashboard/templates"
-                      className="btn btn-secondary btn-sm"
+                      className="btn btn-accent btn-sm"
                     >
                       Créer un template
                     </Link>
@@ -234,9 +234,9 @@ export default async function Dashboard() {
               </div>
 
               {/* Step 3 */}
-              <div className="card bg-accent/10 border-2 border-accent/20">
+              <div className="card bg-gradient-to-br from-secondary/10 to-secondary/5 border-2 border-secondary/30 hover:border-secondary/50 transition-all hover:shadow-lg">
                 <div className="card-body items-center text-center">
-                  <div className="bg-accent text-accent-content w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                  <div className="bg-secondary text-secondary-content w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
                     3
                   </div>
                   <h3 className="card-title text-lg">Programmer l'envoi</h3>
@@ -247,7 +247,7 @@ export default async function Dashboard() {
                   <div className="card-actions mt-4">
                     <Link
                       href="/dashboard/schedules"
-                      className="btn btn-accent btn-sm"
+                      className="btn btn-secondary btn-sm"
                     >
                       Créer une programmation
                     </Link>
@@ -283,9 +283,12 @@ export default async function Dashboard() {
 
         {/* Active Schedules */}
         {data.activeSchedules.length > 0 && (
-          <div className="bg-base-100 rounded-lg shadow-lg p-6 md:p-8">
+          <div className="bg-base-100 rounded-2xl shadow-xl p-6 md:p-8 border border-base-300">
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold">Webinars en cours</h2>
+              <div className="flex items-center gap-3">
+                <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
+                <h2 className="text-2xl font-bold">Webinars en cours</h2>
+              </div>
               <Link
                 href="/dashboard/schedules"
                 className="btn btn-ghost btn-sm"
@@ -298,7 +301,7 @@ export default async function Dashboard() {
               {data.activeSchedules.map((schedule) => (
                 <div
                   key={schedule.id}
-                  className="card bg-base-200 border border-base-300"
+                  className="card bg-gradient-to-br from-base-100 to-base-200 border border-base-300 hover:border-primary/30 transition-all hover:shadow-lg"
                 >
                   <div className="card-body">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

@@ -3,7 +3,7 @@ import { ConfigProps } from "./types/config";
 // DaisyUI v5 no longer exports themes directly, using fallback color
 const themes = {
   light: {
-    primary: "#a9ff68", // blue-500
+    primary: "#25D366", // WhatsApp Green
   },
 };
 
