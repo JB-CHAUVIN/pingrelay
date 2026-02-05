@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : many optimizations">
+    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : modal gray out">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/schedules/[id]/sent-messages/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/schedules/[id]/sent-messages/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/send-messages/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/send-messages/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Templates/TemplateFormModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Templates/TemplateFormModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/forms/DaySelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/forms/DaySelector.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/forms/Select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/forms/Select.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/libs/template-message-sync.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/libs/template-message-sync.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/libs/validators/template.validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/libs/validators/template.validator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/models/Message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/Message.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/models/SentMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/SentMessage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/models/Template.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/Template.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/types/template.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/types/template.types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/dashboard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleStatusBadge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleStatusBadge.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +88,7 @@
       <workItem from="1770115332226" duration="12267000" />
       <workItem from="1770235837502" duration="1869000" />
       <workItem from="1770281387549" duration="5146000" />
-      <workItem from="1770288941894" duration="10078000" />
+      <workItem from="1770288941894" duration="11479000" />
     </task>
     <task id="LOCAL-00001" summary="tech : init project">
       <option name="closed" value="true" />
@@ -122,7 +114,23 @@
       <option name="project" value="LOCAL" />
       <updated>1770287169655</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat : better templating handling">
+      <option name="closed" value="true" />
+      <created>1770319569505</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1770319569505</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat : modal gray out">
+      <option name="closed" value="true" />
+      <created>1770320262473</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1770320262473</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,6 +184,8 @@
     <MESSAGE value="tech : init project" />
     <MESSAGE value="feat : scan phne" />
     <MESSAGE value="feat : many optimizations" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : many optimizations" />
+    <MESSAGE value="feat : better templating handling" />
+    <MESSAGE value="feat : modal gray out" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : modal gray out" />
   </component>
 </project>

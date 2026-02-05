@@ -54,7 +54,7 @@ const ScheduleList: React.FC<ScheduleListProps> = ({
               <th>Nom du groupe</th>
               <th>Modèle</th>
               <th>Date événement</th>
-              <th>Statut</th>
+              <th className="w-32">Statut</th>
               <th>Variables</th>
               <th className="text-right">Actions</th>
             </tr>

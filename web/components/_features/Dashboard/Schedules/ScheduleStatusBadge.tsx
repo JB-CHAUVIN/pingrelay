@@ -27,7 +27,7 @@ const ScheduleStatusBadge: React.FC<ScheduleStatusBadgeProps> = ({ status }) => 
   const config = statusConfig[status];
 
   return (
-    <span className={`badge ${config.className}`}>
+    <span className={`badge ${config.className} whitespace-nowrap`}>
       {config.label}
     </span>
   );
