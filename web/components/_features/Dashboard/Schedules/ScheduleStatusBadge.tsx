@@ -7,19 +7,19 @@ interface ScheduleStatusBadgeProps {
 const ScheduleStatusBadge: React.FC<ScheduleStatusBadgeProps> = ({ status }) => {
   const statusConfig = {
     pending: {
-      label: "Pending",
+      label: "Non démarré",
       className: "badge-warning",
     },
     running: {
-      label: "Running",
+      label: "En cours",
       className: "badge-info",
     },
     completed: {
-      label: "Completed",
+      label: "Terminé",
       className: "badge-success",
     },
     failed: {
-      label: "Failed",
+      label: "Échoué",
       className: "badge-error",
     },
   };

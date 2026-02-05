@@ -4,6 +4,10 @@ import connectMongo from "@/libs/mongoose";
 import Template from "@/models/Template";
 import Phone from "@/models/Phones";
 import { templateUpdateSchema } from "@/libs/validators/template.validator";
+import {
+  syncTemplateMessages,
+  deleteTemplateMessages,
+} from "@/libs/template-message-sync";
 
 // PUT /api/templates/[id] - Update a template
 export async function PUT(
@@ -62,6 +66,13 @@ export async function PUT(
     Object.assign(template, validatedData);
     await template.save();
 
+    // Sync messages to Message collection if messages were updated (async, non-blocking)
+    if (validatedData.messages) {
+      syncTemplateMessages(template._id, validatedData.messages).catch((err) =>
+        console.error("[API] Failed to sync messages:", err)
+      );
+    }
+
     // Populate before returning
     await template.populate("messages.phoneId", "phone status");
 
@@ -106,6 +117,11 @@ export async function DELETE(
         { status: 404 }
       );
     }
+
+    // Delete associated Message documents (async, non-blocking)
+    deleteTemplateMessages(id).catch((err) =>
+      console.error("[API] Failed to delete messages:", err)
+    );
 
     return NextResponse.json({ message: "Template deleted successfully" });
   } catch (e: any) {

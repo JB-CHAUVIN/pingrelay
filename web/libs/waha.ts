@@ -319,3 +319,340 @@ export async function getAllSessions(): Promise<WAHASession[]> {
     );
   }
 }
+
+// ============================================================================
+// UTILITY FUNCTIONS FOR ANTI-BLOCKING
+// ============================================================================
+
+/**
+ * Generate a random delay in milliseconds
+ * @param minSeconds - Minimum delay in seconds
+ * @param maxSeconds - Maximum delay in seconds
+ * @returns Delay in milliseconds
+ */
+export function getRandomDelay(
+  minSeconds: number,
+  maxSeconds: number,
+): number {
+  return (
+    Math.floor(Math.random() * (maxSeconds - minSeconds + 1) + minSeconds) *
+    1000
+  );
+}
+
+/**
+ * Calculate typing delay based on message length (human-like behavior)
+ * @param message - The message to calculate delay for
+ * @returns Typing delay in milliseconds
+ */
+export function getTypingDelayBasedOnMessageLength(message: string): number {
+  // Base delay: 10ms per character, capped at 3 seconds
+  const base = Math.min(message.length * 10, 3000);
+  // Random additional delay: 0.5 to 1.5 seconds
+  const random = getRandomDelay(0.5, 1.5);
+  // Total delay capped at 20 seconds maximum
+  const totalDelay = base + random;
+  return Math.min(totalDelay, 20000);
+}
+
+/**
+ * Sleep utility function
+ * @param milliseconds - Time to sleep in milliseconds
+ */
+export function sleep(milliseconds: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, milliseconds));
+}
+
+// ============================================================================
+// MESSAGING API FUNCTIONS
+// ============================================================================
+
+/**
+ * Send "seen" status to a chat
+ * @param phone - Phone number (session)
+ * @param chatId - WhatsApp chat ID
+ * @returns API response
+ */
+export async function sendSeen(
+  phone: string,
+  chatId: string,
+): Promise<any> {
+  try {
+    const normalizedPhone = normalizePhoneNumber(phone);
+
+    const response = await wahaClient.post("/api/sendSeen", {
+      chatId,
+      session: normalizedPhone,
+    });
+
+    console.log(`[WAHA] Sent seen to chat ${chatId}`);
+    return response.data;
+  } catch (error) {
+    console.warn(`[WAHA] Failed to send seen to ${chatId}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Start typing indicator in a chat
+ * @param phone - Phone number (session)
+ * @param chatId - WhatsApp chat ID
+ * @returns API response
+ */
+export async function startTyping(
+  phone: string,
+  chatId: string,
+): Promise<any> {
+  try {
+    const normalizedPhone = normalizePhoneNumber(phone);
+
+    const response = await wahaClient.post("/api/startTyping", {
+      chatId,
+      session: normalizedPhone,
+    });
+
+    console.log(`[WAHA] Started typing in chat ${chatId}`);
+    return response.data;
+  } catch (error) {
+    console.warn(`[WAHA] Failed to start typing in ${chatId}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Stop typing indicator in a chat
+ * @param phone - Phone number (session)
+ * @param chatId - WhatsApp chat ID
+ * @returns API response
+ */
+export async function stopTyping(
+  phone: string,
+  chatId: string,
+): Promise<any> {
+  try {
+    const normalizedPhone = normalizePhoneNumber(phone);
+
+    const response = await wahaClient.post("/api/stopTyping", {
+      chatId,
+      session: normalizedPhone,
+    });
+
+    console.log(`[WAHA] Stopped typing in chat ${chatId}`);
+    return response.data;
+  } catch (error) {
+    console.warn(`[WAHA] Failed to stop typing in ${chatId}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Send a text message to a chat with anti-blocking measures
+ * @param phone - Phone number (session)
+ * @param chatId - WhatsApp chat ID
+ * @param message - Message text to send
+ * @returns API response
+ */
+export async function sendTextMessage(
+  phone: string,
+  chatId: string,
+  message: string,
+): Promise<any> {
+  try {
+    const normalizedPhone = normalizePhoneNumber(phone);
+
+    console.log(
+      `[WAHA] Starting anti-blocking message sequence for chat ${chatId}`,
+    );
+
+    // Step 1: Send seen
+    await sendSeen(normalizedPhone, chatId);
+    await sleep(getRandomDelay(1, 2));
+
+    // Step 2: Start typing
+    await startTyping(normalizedPhone, chatId);
+
+    // Step 3: Simulate typing delay
+    const typingDelay = getTypingDelayBasedOnMessageLength(message);
+    console.log(
+      `[WAHA] Simulating typing for ${typingDelay}ms for message: "${message.substring(0, 50)}..."`,
+    );
+    await sleep(typingDelay);
+
+    // Step 4: Stop typing
+    await stopTyping(normalizedPhone, chatId);
+    await sleep(getRandomDelay(0.5, 1.5));
+
+    // Step 5: Send the actual message
+    const response = await wahaClient.post("/api/sendText", {
+      text: message,
+      chatId,
+      reply_to: null,
+      linkPreview: false,
+      linkPreviewHighQuality: false,
+      session: normalizedPhone,
+    });
+
+    console.log(`[WAHA] Anti-blocking message sequence completed for ${chatId}`);
+    return response.data;
+  } catch (error) {
+    console.error(
+      `[WAHA] Failed in anti-blocking sequence for ${chatId}:`,
+      error,
+    );
+    // Fallback: try to send the message directly
+    try {
+      const normalizedPhone = normalizePhoneNumber(phone);
+      const response = await wahaClient.post("/api/sendText", {
+        text: message,
+        chatId,
+        reply_to: null,
+        linkPreview: false,
+        linkPreviewHighQuality: false,
+        session: normalizedPhone,
+      });
+      return response.data;
+    } catch (fallbackError) {
+      throw new Error(
+        `Failed to send message: ${
+          fallbackError instanceof Error
+            ? fallbackError.message
+            : "Unknown error"
+        }`,
+      );
+    }
+  }
+}
+
+/**
+ * Send an image to a chat with anti-blocking measures
+ * @param phone - Phone number (session)
+ * @param chatId - WhatsApp chat ID
+ * @param imageUrl - URL of the image to send
+ * @returns API response
+ */
+export async function sendImage(
+  phone: string,
+  chatId: string,
+  imageUrl: string,
+): Promise<any> {
+  try {
+    const normalizedPhone = normalizePhoneNumber(phone);
+
+    console.log(
+      `[WAHA] Starting anti-blocking image send sequence for chat ${chatId}`,
+    );
+
+    // Add delay before sending image
+    await sleep(getRandomDelay(2, 4));
+
+    // Start typing
+    await startTyping(normalizedPhone, chatId);
+
+    // Wait (simulating time to prepare/upload image)
+    await sleep(getRandomDelay(3, 6));
+
+    // Stop typing
+    await stopTyping(normalizedPhone, chatId);
+
+    // Small delay before actual send
+    await sleep(getRandomDelay(1, 2));
+
+    const response = await wahaClient.post("/api/sendImage", {
+      chatId,
+      file: {
+        mimetype: "image/jpeg",
+        filename: "image.jpg",
+        url: encodeURI(imageUrl),
+      },
+      reply_to: null,
+      session: normalizedPhone,
+    });
+
+    console.log(`[WAHA] Anti-blocking image send sequence completed for ${chatId}`);
+    return response.data;
+  } catch (error) {
+    console.error(`[WAHA] Failed to send image to ${chatId}:`, error);
+    throw new Error(
+      `Failed to send image: ${
+        error instanceof Error ? error.message : "Unknown error"
+      }`,
+    );
+  }
+}
+
+/**
+ * Send a video to a chat with anti-blocking measures
+ * @param phone - Phone number (session)
+ * @param chatId - WhatsApp chat ID
+ * @param videoUrl - URL of the video to send
+ * @returns API response
+ */
+export async function sendVideo(
+  phone: string,
+  chatId: string,
+  videoUrl: string,
+): Promise<any> {
+  try {
+    const normalizedPhone = normalizePhoneNumber(phone);
+
+    console.log(
+      `[WAHA] Starting anti-blocking video send sequence for chat ${chatId}`,
+    );
+
+    // Add delay before sending video
+    await sleep(getRandomDelay(3, 6));
+
+    // Start typing
+    await startTyping(normalizedPhone, chatId);
+
+    // Wait longer for video (simulating time to prepare/upload video)
+    await sleep(getRandomDelay(5, 10));
+
+    // Stop typing
+    await stopTyping(normalizedPhone, chatId);
+
+    // Small delay before actual send
+    await sleep(getRandomDelay(1, 3));
+
+    const response = await wahaClient.post("/api/sendImage", {
+      chatId,
+      file: {
+        mimetype: "video/mp4",
+        filename: "video.mp4",
+        url: encodeURI(videoUrl),
+      },
+      reply_to: null,
+      session: normalizedPhone,
+    });
+
+    console.log(`[WAHA] Anti-blocking video send sequence completed for ${chatId}`);
+    return response.data;
+  } catch (error) {
+    console.error(`[WAHA] Failed to send video to ${chatId}:`, error);
+    throw new Error(
+      `Failed to send video: ${
+        error instanceof Error ? error.message : "Unknown error"
+      }`,
+    );
+  }
+}
+
+/**
+ * Get all chats for a session
+ * @param phone - Phone number (session)
+ * @returns List of chats
+ */
+export async function getChats(phone: string): Promise<any[]> {
+  try {
+    const normalizedPhone = normalizePhoneNumber(phone);
+
+    const response = await wahaClient.get(
+      `/api/${normalizedPhone}/chats?sortOrder=desc&limit=100`,
+    );
+
+    return response.data;
+  } catch (error) {
+    console.error(`[WAHA] Failed to get chats for ${phone}:`, error);
+    return [];
+  }
+}

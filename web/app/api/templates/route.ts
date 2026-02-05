@@ -4,6 +4,7 @@ import connectMongo from "@/libs/mongoose";
 import Template from "@/models/Template";
 import Phone from "@/models/Phones";
 import { templateCreateSchema } from "@/libs/validators/template.validator";
+import { syncTemplateMessages } from "@/libs/template-message-sync";
 
 // GET /api/templates - List templates with pagination
 export async function GET(req: NextRequest) {
@@ -80,6 +81,11 @@ export async function POST(req: NextRequest) {
       ...validatedData,
       user: session.user.id,
     });
+
+    // Sync messages to Message collection (async, non-blocking)
+    syncTemplateMessages(template._id, validatedData.messages).catch((err) =>
+      console.error("[API] Failed to sync messages:", err)
+    );
 
     // Populate before returning
     await template.populate("messages.phoneId", "phone status");
