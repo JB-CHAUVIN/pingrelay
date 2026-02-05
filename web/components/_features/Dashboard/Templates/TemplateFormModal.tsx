@@ -356,9 +356,13 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                           </button>
                         </div>
 
-                        {sortMessagesBySchedule(formData.messages).map((message, index) => (
+                        {sortMessagesBySchedule(
+                          formData.messages.map((msg, idx) => ({ ...msg, originalIndex: idx }))
+                        ).map((message) => {
+                          const originalIndex = message.originalIndex;
+                          return (
                           <div
-                            key={index}
+                            key={originalIndex}
                             className="border border-base-300 rounded-lg overflow-hidden"
                           >
                             {/* Message Header */}
@@ -366,7 +370,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                               <div className="flex justify-between items-start">
                                 <button
                                   type="button"
-                                  onClick={() => toggleMessage(index)}
+                                  onClick={() => toggleMessage(originalIndex)}
                                   className="flex-1 text-left flex items-start gap-2"
                                 >
                                   <svg
@@ -374,7 +378,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                     viewBox="0 0 20 20"
                                     fill="currentColor"
                                     className={`w-5 h-5 transition-transform ${
-                                      expandedMessages[index] ? "rotate-180" : ""
+                                      expandedMessages[originalIndex] ? "rotate-180" : ""
                                     }`}
                                   >
                                     <path
@@ -384,12 +388,12 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                     />
                                   </svg>
                                   <div className="flex-1">
-                                    <h4 className="font-medium">Message {index + 1}</h4>
+                                    <h4 className="font-medium">Message {originalIndex + 1}</h4>
                                     <p className="text-sm text-base-content/60 mt-1">
                                       {getMessagePreview(message.messageTemplate)}
                                     </p>
                                     <p className="text-sm text-base-content/60 mt-1">
-                                      {getMessageDate(message, index)}
+                                      {getMessageDate(message, originalIndex)}
                                     </p>
                                   </div>
                                 </button>
@@ -397,7 +401,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                 {formData.messages.length > 1 && (
                                   <button
                                     type="button"
-                                    onClick={() => removeMessage(index)}
+                                    onClick={() => removeMessage(originalIndex)}
                                     disabled={isSubmitting}
                                     className="btn btn-sm btn-ghost text-error ml-2"
                                   >
@@ -408,17 +412,17 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                             </div>
 
                             {/* Message Content */}
-                            {expandedMessages[index] && (
+                            {expandedMessages[originalIndex] && (
                               <div className="p-4 space-y-4">
                                 <Select
                                   label="Numéro de téléphone"
-                                  name={`messages.${index}.phoneId`}
+                                  name={`messages.${originalIndex}.phoneId`}
                                   value={message.phoneId}
                                   onChange={(value) =>
-                                    updateMessage(index, "phoneId", value)
+                                    updateMessage(originalIndex, "phoneId", value)
                                   }
                                   options={phoneOptions}
-                                  error={errors[`messages.${index}.phoneId`]}
+                                  error={errors[`messages.${originalIndex}.phoneId`]}
                                   placeholder="Sélectionnez un numéro"
                                   required
                                   disabled={isSubmitting}
@@ -426,35 +430,35 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
 
                                 <Select
                                   label="Type de planification"
-                                  name={`messages.${index}.sendTimeType`}
-                                  value={sendTimeTypes[index] || "fixed_time"}
-                                  onChange={(value) => updateSendTimeType(index, value)}
+                                  name={`messages.${originalIndex}.sendTimeType`}
+                                  value={sendTimeTypes[originalIndex] || "fixed_time"}
+                                  onChange={(value) => updateSendTimeType(originalIndex, value)}
                                   options={sendTimeTypeOptions}
                                   disabled={isSubmitting}
                                 />
 
                                 {/* Fixed Time Mode */}
-                                {sendTimeTypes[index] === "fixed_time" && (
+                                {sendTimeTypes[originalIndex] === "fixed_time" && (
                                   <div className="grid grid-cols-2 gap-4">
                                     <DaySelector
                                       label="Jour d'envoi"
                                       value={message.sendOnDay}
                                       onChange={(value) =>
-                                        updateMessage(index, "sendOnDay", value)
+                                        updateMessage(originalIndex, "sendOnDay", value)
                                       }
-                                      error={errors[`messages.${index}.sendOnDay`]}
+                                      error={errors[`messages.${originalIndex}.sendOnDay`]}
                                       required
                                       disabled={isSubmitting}
                                     />
 
                                     <TimePicker
                                       label="Heure d'envoi"
-                                      name={`messages.${index}.sendOnHour`}
+                                      name={`messages.${originalIndex}.sendOnHour`}
                                       value={message.sendOnHour}
                                       onChange={(value) =>
-                                        updateMessage(index, "sendOnHour", value)
+                                        updateMessage(originalIndex, "sendOnHour", value)
                                       }
-                                      error={errors[`messages.${index}.sendOnHour`]}
+                                      error={errors[`messages.${originalIndex}.sendOnHour`]}
                                       required
                                       disabled={isSubmitting}
                                     />
@@ -462,7 +466,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                 )}
 
                                 {/* Event Time Mode */}
-                                {sendTimeTypes[index] === "event_time" && (
+                                {sendTimeTypes[originalIndex] === "event_time" && (
                                   <div className="alert alert-info">
                                     <svg
                                       xmlns="http://www.w3.org/2000/svg"
@@ -484,16 +488,16 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                 )}
 
                                 {/* Relative Time Mode */}
-                                {sendTimeTypes[index] === "relative_time" && (
+                                {sendTimeTypes[originalIndex] === "relative_time" && (
                                   <div className="space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
                                       <Input
                                         label="Jours (avant: -, après: +)"
-                                        name={`messages.${index}.relativeDays`}
+                                        name={`messages.${originalIndex}.relativeDays`}
                                         type="number"
-                                        value={relativeDays[index] || "0"}
+                                        value={relativeDays[originalIndex] || "0"}
                                         onChange={(value) =>
-                                          setRelativeDays((prev) => ({ ...prev, [index]: value }))
+                                          setRelativeDays((prev) => ({ ...prev, [originalIndex]: value }))
                                         }
                                         placeholder="0"
                                         disabled={isSubmitting}
@@ -501,11 +505,11 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
 
                                       <Input
                                         label="Heures (avant: -, après: +)"
-                                        name={`messages.${index}.relativeHours`}
+                                        name={`messages.${originalIndex}.relativeHours`}
                                         type="number"
-                                        value={relativeHours[index] || "0"}
+                                        value={relativeHours[originalIndex] || "0"}
                                         onChange={(value) =>
-                                          setRelativeHours((prev) => ({ ...prev, [index]: value }))
+                                          setRelativeHours((prev) => ({ ...prev, [originalIndex]: value }))
                                         }
                                         placeholder="0"
                                         disabled={isSubmitting}
@@ -535,12 +539,12 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
 
                                 <TextArea
                                   label="Contenu du message"
-                                  name={`messages.${index}.messageTemplate`}
+                                  name={`messages.${originalIndex}.messageTemplate`}
                                   value={message.messageTemplate}
                                   onChange={(value) =>
-                                    updateMessage(index, "messageTemplate", value)
+                                    updateMessage(originalIndex, "messageTemplate", value)
                                   }
-                                  error={errors[`messages.${index}.messageTemplate`]}
+                                  error={errors[`messages.${originalIndex}.messageTemplate`]}
                                   placeholder="Utilisez {{variable}} pour le contenu dynamique"
                                   required
                                   disabled={isSubmitting}
@@ -550,24 +554,24 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                 <div className="grid grid-cols-2 gap-4">
                                   <Input
                                     label="URL de l'image (optionnel)"
-                                    name={`messages.${index}.image`}
+                                    name={`messages.${originalIndex}.image`}
                                     value={message.image || ""}
                                     onChange={(value) =>
-                                      updateMessage(index, "image", value)
+                                      updateMessage(originalIndex, "image", value)
                                     }
-                                    error={errors[`messages.${index}.image`]}
+                                    error={errors[`messages.${originalIndex}.image`]}
                                     placeholder="https://exemple.com/image.jpg"
                                     disabled={isSubmitting}
                                   />
 
                                   <Input
                                     label="URL de la vidéo (optionnel)"
-                                    name={`messages.${index}.video`}
+                                    name={`messages.${originalIndex}.video`}
                                     value={message.video || ""}
                                     onChange={(value) =>
-                                      updateMessage(index, "video", value)
+                                      updateMessage(originalIndex, "video", value)
                                     }
-                                    error={errors[`messages.${index}.video`]}
+                                    error={errors[`messages.${originalIndex}.video`]}
                                     placeholder="https://exemple.com/video.mp4"
                                     disabled={isSubmitting}
                                   />
@@ -575,7 +579,8 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                               </div>
                             )}
                           </div>
-                        ))}
+                        );
+                        })}
                       </div>
                     </div>
                   </FormWrapper>
