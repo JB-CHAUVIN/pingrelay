@@ -5,6 +5,7 @@ export interface IMessage {
   _id: string;
   templateId: mongoose.Types.ObjectId;
   phoneId: mongoose.Types.ObjectId;
+  sendTimeType: "fixed_time" | "event_time" | "relative_time";
   sendOnDay: string;
   sendOnHour: string;
   messageTemplate: string;
@@ -27,6 +28,12 @@ const messageSchema = new Schema<IMessage>(
       type: Schema.Types.ObjectId,
       ref: "Phone",
       required: true,
+    },
+    sendTimeType: {
+      type: String,
+      enum: ["fixed_time", "event_time", "relative_time"],
+      required: true,
+      default: "fixed_time",
     },
     sendOnDay: {
       type: String,

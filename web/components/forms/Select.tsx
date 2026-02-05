@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 export interface SelectOption {
   value: string;
@@ -30,6 +30,15 @@ const Select: React.FC<SelectProps> = ({
   placeholder = "Select an option",
   className = "",
 }) => {
+  const selectRef = useRef<HTMLSelectElement>(null);
+
+  // Force the select to update when value changes
+  useEffect(() => {
+    if (selectRef.current && value !== undefined && value !== null) {
+      selectRef.current.value = String(value);
+    }
+  }, [value]);
+
   return (
     <div className={`form-control w-full ${className}`}>
       <label htmlFor={name} className="label">
@@ -39,9 +48,10 @@ const Select: React.FC<SelectProps> = ({
         </span>
       </label>
       <select
+        ref={selectRef}
         id={name}
         name={name}
-        value={value}
+        value={value || ""}
         onChange={(e) => onChange(e.target.value)}
         disabled={disabled}
         required={required}

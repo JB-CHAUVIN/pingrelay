@@ -22,7 +22,11 @@ const DaySelector: React.FC<DaySelectorProps> = ({
   className = "",
 }) => {
   const parseValue = (val: string) => {
-    // Ensure val is a string
+    // Ensure val is a string and handle undefined/null
+    if (!val && val !== "0") {
+      return { type: "dday", days: "" };
+    }
+
     const strVal = String(val);
 
     if (strVal === "0") {
@@ -68,6 +72,7 @@ const DaySelector: React.FC<DaySelectorProps> = ({
       </label>
       <div className="flex gap-2">
         <Select
+          key={`daytype-${value}`}
           label=""
           name="dayType"
           value={type}

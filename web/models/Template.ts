@@ -7,6 +7,11 @@ const templateMessageSchema = new mongoose.Schema({
     ref: "Phone",
     required: [true, "Phone is required"],
   },
+  sendTimeType: {
+    type: String,
+    enum: ["fixed_time", "event_time", "relative_time"],
+    default: "fixed_time",
+  },
   sendOnDay: {
     type: String,
     required: [true, "Send on day is required"],

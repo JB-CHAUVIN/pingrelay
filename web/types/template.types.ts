@@ -1,5 +1,6 @@
 export interface TemplateMessage {
   phoneId: string;
+  sendTimeType?: "fixed_time" | "event_time" | "relative_time";
   sendOnDay: string;
   sendOnHour: string;
   messageTemplate: string;

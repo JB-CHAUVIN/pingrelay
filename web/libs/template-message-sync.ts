@@ -10,6 +10,7 @@ import mongoose from "mongoose";
 
 interface MessageData {
   phoneId: string;
+  sendTimeType?: "fixed_time" | "event_time" | "relative_time";
   sendOnDay: string;
   sendOnHour: string;
   messageTemplate: string;
@@ -40,6 +41,7 @@ export async function syncTemplateMessages(
       const messageDoc = await Message.create({
         templateId,
         phoneId: msg.phoneId,
+        sendTimeType: msg.sendTimeType || "fixed_time",
         sendOnDay: msg.sendOnDay,
         sendOnHour: msg.sendOnHour,
         messageTemplate: msg.messageTemplate,

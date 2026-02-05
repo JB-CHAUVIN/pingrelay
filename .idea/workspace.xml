@@ -6,6 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : many optimizations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/api/schedules/[id]/sent-messages/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/schedules/[id]/sent-messages/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/api/send-messages/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/send-messages/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Templates/TemplateFormModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Templates/TemplateFormModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/components/forms/DaySelector.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/forms/DaySelector.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/components/forms/Select.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/forms/Select.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/libs/template-message-sync.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/libs/template-message-sync.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/libs/validators/template.validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/libs/validators/template.validator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/models/Message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/Message.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/models/SentMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/SentMessage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/models/Template.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/Template.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/types/template.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/types/template.types.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +96,7 @@
       <workItem from="1770115332226" duration="12267000" />
       <workItem from="1770235837502" duration="1869000" />
       <workItem from="1770281387549" duration="5146000" />
-      <workItem from="1770288941894" duration="7806000" />
+      <workItem from="1770288941894" duration="10078000" />
     </task>
     <task id="LOCAL-00001" summary="tech : init project">
       <option name="closed" value="true" />

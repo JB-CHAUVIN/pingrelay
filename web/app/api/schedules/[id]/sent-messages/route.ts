@@ -69,6 +69,7 @@ export async function GET(
       // If message was sent, use the snapshot (actual content that was sent)
       // Otherwise, use the current template content
       const messageContent = sentMessage?.messageSnapshot || {
+        sendTimeType: templateMsg.sendTimeType || "fixed_time",
         sendOnDay: templateMsg.sendOnDay,
         sendOnHour: templateMsg.sendOnHour,
         messageTemplate: templateMsg.messageTemplate,
@@ -78,6 +79,7 @@ export async function GET(
 
       return {
         messageIndex: index,
+        sendTimeType: messageContent.sendTimeType || "fixed_time",
         sendOnDay: messageContent.sendOnDay,
         sendOnHour: messageContent.sendOnHour,
         messageTemplate: messageContent.messageTemplate,

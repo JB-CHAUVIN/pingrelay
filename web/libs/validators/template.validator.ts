@@ -15,6 +15,11 @@ export const templateMessageSchema = z.object({
     .min(1, "Phone is required")
     .regex(/^[0-9a-fA-F]{24}$/, "Invalid phone ID"),
 
+  sendTimeType: z
+    .enum(["fixed_time", "event_time", "relative_time"])
+    .optional()
+    .default("fixed_time"),
+
   sendOnDay: z
     .string()
     .regex(sendOnDayRegex, "Invalid day format. Must be between -30 and +30, or 0 for D-Day")

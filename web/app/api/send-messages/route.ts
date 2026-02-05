@@ -206,21 +206,42 @@ export async function POST(req: NextRequest) {
 
             const templateMessage = messages[messageIndex];
 
-            // Calculate when this message should be sent
-            const sendOnDay = parseInt(templateMessage.sendOnDay);
-            const [sendOnHour, sendOnMinute] =
-              templateMessage.sendOnHour.split(":");
-            const executionDate = eventDate
-              .clone()
-              .add(sendOnDay, "days")
-              .set({
-                hour: parseInt(sendOnHour),
-                minute: parseInt(sendOnMinute),
-                second: 0,
-              });
+            // Get sendTimeType (default to fixed_time for backward compatibility)
+            const sendTimeType = templateMessage.sendTimeType || "fixed_time";
+
+            // Calculate when this message should be sent based on sendTimeType
+            let executionDate: moment.Moment;
+
+            if (sendTimeType === "event_time") {
+              // event_time: Send exactly at the event date/time
+              executionDate = eventDate.clone();
+            } else if (sendTimeType === "relative_time") {
+              // relative_time: Add/subtract days AND hours from event date
+              const sendOnDay = parseInt(templateMessage.sendOnDay);
+              const sendOnHour = parseInt(templateMessage.sendOnHour.split(":")[0]);
+
+              executionDate = eventDate
+                .clone()
+                .add(sendOnDay, "days")
+                .add(sendOnHour, "hours");
+            } else {
+              // fixed_time: Add days and set specific time
+              const sendOnDay = parseInt(templateMessage.sendOnDay);
+              const [sendOnHour, sendOnMinute] =
+                templateMessage.sendOnHour.split(":");
+
+              executionDate = eventDate
+                .clone()
+                .add(sendOnDay, "days")
+                .set({
+                  hour: parseInt(sendOnHour),
+                  minute: parseInt(sendOnMinute),
+                  second: 0,
+                });
+            }
 
             console.log(
-              `[CRON] Message ${messageIndex + 1}/${template.messages.length} - Execution: ${executionDate.format("YYYY-MM-DD HH:mm")} - Now: ${now.format("YYYY-MM-DD HH:mm")}`,
+              `[CRON] Message ${messageIndex + 1}/${template.messages.length} - Type: ${sendTimeType} - Execution: ${executionDate.format("YYYY-MM-DD HH:mm")} - Now: ${now.format("YYYY-MM-DD HH:mm")}`,
             );
 
             // Check if message should be sent now
@@ -251,6 +272,7 @@ export async function POST(req: NextRequest) {
               messageIndex,
               phoneId: templateMessage.phoneId,
               messageSnapshot: {
+                sendTimeType: templateMessage.sendTimeType || "fixed_time",
                 sendOnDay: templateMessage.sendOnDay,
                 sendOnHour: templateMessage.sendOnHour,
                 messageTemplate: templateMessage.messageTemplate,

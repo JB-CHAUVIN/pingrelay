@@ -17,6 +17,7 @@ export interface ISentMessage {
   groupId?: string;
   // Snapshot of the message at the time of sending (immutable record)
   messageSnapshot: {
+    sendTimeType?: string;
     sendOnDay: string;
     sendOnHour: string;
     messageTemplate: string;
@@ -73,6 +74,7 @@ const sentMessageSchema = new Schema<ISentMessage>(
     // This prevents issues if the message is modified later
     messageSnapshot: {
       type: {
+        sendTimeType: { type: String },
         sendOnDay: { type: String, required: true },
         sendOnHour: { type: String, required: true },
         messageTemplate: { type: String, required: true },
