@@ -7,6 +7,7 @@ import apiClient from "@/libs/api";
 import ScheduleStatusBadge from "@/components/_features/Dashboard/Schedules/ScheduleStatusBadge";
 import SentMessagesList from "@/components/_features/Dashboard/Schedules/SentMessagesList";
 import SentMessagesStats from "@/components/_features/Dashboard/Schedules/SentMessagesStats";
+import { sortMessagesBySchedule } from "@/libs/message-sort";
 
 interface SentMessage {
   messageIndex: number;
@@ -240,7 +241,7 @@ export default function ScheduleDetailsPage() {
         <div className="bg-base-100 rounded-lg shadow-lg p-6 mt-6">
           <h2 className="text-2xl font-bold mb-4">Messages programmés</h2>
           <SentMessagesList
-            messages={messages}
+            messages={sortMessagesBySchedule(messages)}
             eventDate={schedule.eventDate}
           />
         </div>

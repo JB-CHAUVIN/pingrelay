@@ -13,6 +13,7 @@ import { Template, TemplateMessage } from "@/types/template.types";
 import { Phone } from "@/types/phone.types";
 import { templateCreateSchema } from "@/libs/validators/template.validator";
 import { z } from "zod";
+import { sortMessagesBySchedule } from "@/libs/message-sort";
 
 interface TemplateFormModalProps {
   isOpen: boolean;
@@ -355,7 +356,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                           </button>
                         </div>
 
-                        {formData.messages.map((message, index) => (
+                        {sortMessagesBySchedule(formData.messages).map((message, index) => (
                           <div
                             key={index}
                             className="border border-base-300 rounded-lg overflow-hidden"
