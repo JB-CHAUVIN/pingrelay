@@ -4,6 +4,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 
 import React from "react";
+import { MODAL_BACKDROP_CLASSES } from "@/components/ModalBackdrop";
 
 interface ModalProps {
   isModalOpen: boolean;
@@ -29,7 +30,7 @@ const Modal = ({ isModalOpen, setIsModalOpen }: ModalProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-neutral-focus bg-opacity-50" />
+          <div className={MODAL_BACKDROP_CLASSES} />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">

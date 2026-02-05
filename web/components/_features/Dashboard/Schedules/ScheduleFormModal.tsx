@@ -2,6 +2,7 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState, useEffect } from "react";
+import { MODAL_BACKDROP_CLASSES } from "@/components/ModalBackdrop";
 import React from "react";
 import Input from "@/components/forms/Input";
 import Select from "@/components/forms/Select";
@@ -108,7 +109,7 @@ const ScheduleFormModal: React.FC<ScheduleFormModalProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-neutral-focus bg-opacity-50" />
+          <div className={MODAL_BACKDROP_CLASSES} />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">

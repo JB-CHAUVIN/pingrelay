@@ -2,6 +2,7 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useRef, useState } from "react";
+import { MODAL_BACKDROP_CLASSES } from "@/components/ModalBackdrop";
 
 interface PhoneQRModalProps {
   isOpen: boolean;
@@ -141,7 +142,7 @@ const PhoneQRModal: React.FC<PhoneQRModalProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-neutral-focus bg-opacity-50" />
+          <div className={MODAL_BACKDROP_CLASSES} />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">

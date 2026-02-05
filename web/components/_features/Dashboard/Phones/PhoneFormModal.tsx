@@ -2,6 +2,7 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment, useEffect, useState } from "react";
+import { MODAL_BACKDROP_CLASSES } from "@/components/ModalBackdrop";
 import Input from "@/components/forms/Input";
 import Select, { SelectOption } from "@/components/forms/Select";
 import FormWrapper from "@/components/forms/FormWrapper";
@@ -106,7 +107,7 @@ const PhoneFormModal: React.FC<PhoneFormModalProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-neutral-focus bg-opacity-50" />
+          <div className={MODAL_BACKDROP_CLASSES} />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">

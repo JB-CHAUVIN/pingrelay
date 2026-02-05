@@ -3,6 +3,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState, useEffect } from "react";
 import React from "react";
+import { MODAL_BACKDROP_CLASSES } from "@/components/ModalBackdrop";
 import Input from "@/components/forms/Input";
 import Select from "@/components/forms/Select";
 import TextArea from "@/components/forms/TextArea";
@@ -310,11 +311,11 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-neutral-focus bg-opacity-50" />
+          <div className={MODAL_BACKDROP_CLASSES} />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full overflow-hidden items-start md:items-center justify-center p-2">
+          <div className="flex min-h-full overflow-hidden items-center justify-center p-4">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -324,7 +325,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="relative w-full max-w-4xl h-full max-h-[90vh] overflow-visible transform text-left align-middle shadow-xl transition-all rounded-xl bg-base-100 p-6 md:p-8">
+              <Dialog.Panel className="relative w-[95vw] h-[95vh] overflow-visible transform text-left align-middle shadow-xl transition-all rounded-xl bg-base-100 p-6 md:p-8">
                 <div className="flex justify-between items-center mb-6">
                   <Dialog.Title as="h2" className="font-semibold text-xl">
                     {template ? "Modifier le modèle" : "Créer un modèle"}
@@ -345,7 +346,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                   </button>
                 </div>
 
-                <div className="overflow-y-auto max-h-[calc(90vh-180px)]">
+                <div className="overflow-y-auto max-h-[calc(95vh-120px)]">
                   <FormWrapper
                     onSubmit={handleSubmit}
                     onCancel={onClose}

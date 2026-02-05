@@ -2,6 +2,7 @@
 
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { MODAL_BACKDROP_CLASSES } from "@/components/ModalBackdrop";
 import React from "react";
 
 interface DeleteConfirmModalProps {
@@ -33,7 +34,7 @@ const DeleteConfirmModal: React.FC<DeleteConfirmModalProps> = ({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-neutral-focus bg-opacity-50" />
+          <div className={MODAL_BACKDROP_CLASSES} />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
