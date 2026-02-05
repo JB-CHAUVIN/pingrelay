@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : many optimizations">
-      <change afterPath="$PROJECT_DIR$/web/app/api/schedules/[id]/sent-messages/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/app/api/send-messages/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/app/api/templates/sync-messages/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/app/dashboard/schedules/[id]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/SentMessagesList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/SentMessagesStats.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/libs/template-message-sync.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/models/Message.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/models/SentMessage.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/templates/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/templates/[id]/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/templates/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/templates/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleStatusBadge.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleStatusBadge.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/libs/waha.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/libs/waha.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/web/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +85,7 @@
       <workItem from="1770115332226" duration="12267000" />
       <workItem from="1770235837502" duration="1869000" />
       <workItem from="1770281387549" duration="5146000" />
-      <workItem from="1770288941894" duration="3365000" />
+      <workItem from="1770288941894" duration="7806000" />
     </task>
     <task id="LOCAL-00001" summary="tech : init project">
       <option name="closed" value="true" />
