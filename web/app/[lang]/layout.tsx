@@ -6,6 +6,7 @@ import ClientLayout from "@/components/LayoutClient";
 import config from "@/config";
 import { i18n, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/get-dictionary";
+import { notFound } from "next/navigation";
 import "../globals.css";
 
 const font = Inter({ subsets: ["latin"] });
@@ -26,6 +27,12 @@ export async function generateMetadata({
   params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
+
+  // Validate locale
+  if (!i18n.locales.includes(lang as Locale)) {
+    return getSEOTags();
+  }
+
   const dict = await getDictionary(lang);
 
   return getSEOTags({
@@ -43,6 +50,11 @@ export default async function LangLayout({
   params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
+
+  // Validate locale - return 404 if invalid
+  if (!i18n.locales.includes(lang as Locale)) {
+    notFound();
+  }
 
   return (
     <html lang={lang} data-theme={config.colors.theme} className={font.className}>

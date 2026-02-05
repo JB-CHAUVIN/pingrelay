@@ -1,11 +1,11 @@
 import { ReactNode } from "react";
-import { redirect } from "next/navigation";
+import { redirect, notFound } from "next/navigation";
 import { auth } from "@/libs/next-auth";
 import config from "@/config";
 import DashboardLayout from "@/components/_features/Dashboard/DashboardLayout";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { DictionaryProvider } from "@/i18n/dictionary-provider";
-import { Locale } from "@/i18n/config";
+import { i18n, Locale } from "@/i18n/config";
 
 // This is a server-side component to ensure the user is logged in.
 // If not, it will redirect to the login page.
@@ -24,6 +24,12 @@ export default async function LayoutPrivate({
   }
 
   const { lang } = await params;
+
+  // Validate locale
+  if (!i18n.locales.includes(lang as Locale)) {
+    notFound();
+  }
+
   const dict = await getDictionary(lang);
 
   return (

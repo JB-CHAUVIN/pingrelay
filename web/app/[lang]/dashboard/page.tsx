@@ -1,5 +1,5 @@
 import { auth } from "@/libs/next-auth";
-import { redirect } from "next/navigation";
+import { redirect, notFound } from "next/navigation";
 import connectMongo from "@/libs/mongoose";
 import Phones from "@/models/Phones";
 import Template from "@/models/Template";
@@ -7,7 +7,7 @@ import Schedule from "@/models/Schedule";
 import SentMessage from "@/models/SentMessage";
 import Link from "next/link";
 import { getDictionary } from "@/i18n/get-dictionary";
-import type { Locale } from "@/i18n/config";
+import { i18n, type Locale } from "@/i18n/config";
 
 export const dynamic = "force-dynamic";
 
@@ -80,6 +80,12 @@ export default async function Dashboard({
   params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
+
+  // Validate locale
+  if (!i18n.locales.includes(lang as Locale)) {
+    notFound();
+  }
+
   const dict = await getDictionary(lang);
 
   const session = await auth();

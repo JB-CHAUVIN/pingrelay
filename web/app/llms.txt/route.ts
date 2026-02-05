@@ -44,7 +44,6 @@ PingRelay automates WhatsApp messaging for webinars and online events. Send auto
 
 ## Contact
 Website: https://pingrelay.live
-Support: marc.louvion@gmail.com
 
 ## SEO Keywords
 whatsapp automation, webinar automation, automated messages, webinar reminders, whatsapp marketing, event engagement, automated whatsapp messages, webinar attendance, online event automation, whatsapp for webinars, automated event reminders, participant engagement, webinar marketing automation

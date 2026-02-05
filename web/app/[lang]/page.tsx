@@ -7,7 +7,8 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { DictionaryProvider } from "@/i18n/dictionary-provider";
-import type { Locale } from "@/i18n/config";
+import { i18n, type Locale } from "@/i18n/config";
+import { notFound } from "next/navigation";
 
 export default async function Page({
   params,
@@ -15,6 +16,12 @@ export default async function Page({
   params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
+
+  // Validate locale
+  if (!i18n.locales.includes(lang as Locale)) {
+    notFound();
+  }
+
   const dict = await getDictionary(lang);
 
   return (
