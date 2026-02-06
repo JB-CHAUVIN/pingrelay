@@ -104,12 +104,10 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
       console.error("Validation error:", e);
       if (e instanceof z.ZodError) {
         const newErrors: Record<string, string> = {};
-        if (e.errors && Array.isArray(e.errors)) {
-          e.errors.forEach((err) => {
-            const path = err.path.join(".");
-            newErrors[path] = err.message;
-          });
-        }
+        e.issues.forEach((err) => {
+          const path = err.path.join(".");
+          newErrors[path] = err.message;
+        });
         setErrors(newErrors);
       } else {
         console.error("Non-Zod validation error:", e);
@@ -141,7 +139,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
       messages: [...prev.messages, { ...emptyMessage }],
     }));
     setExpandedMessages((prev) => ({ ...prev, [newIndex]: true }));
-    setSendTimeTypes((prev) => ({ ...prev, [newIndex]: "fixed_time" }));
+    // sendTimeType is already set in emptyMessage
   };
 
   const removeMessage = (index: number) => {
@@ -156,10 +154,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
     delete newExpanded[index];
     setExpandedMessages(newExpanded);
 
-    // Clean up send time type
-    const newTypes = { ...sendTimeTypes };
-    delete newTypes[index];
-    setSendTimeTypes(newTypes);
+    // sendTimeType is stored in each message, no separate cleanup needed
   };
 
   const toggleMessage = (index: number) => {
@@ -514,7 +509,7 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                       />
                                     </svg>
                                     <span>
-                                      Le message sera envoyé exactement à la date et heure de l'événement
+                                      Le message sera envoyé exactement à la date et heure de l&apos;événement
                                     </span>
                                   </div>
                                 )}
@@ -563,8 +558,8 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                         />
                                       </svg>
                                       <span className="text-sm">
-                                        Exemple : -1 jour et -3 heures = 1 jour et 3 heures avant l'événement<br />
-                                        Exemple : 0 jour et 2 heures = 2 heures après l'événement
+                                        Exemple : -1 jour et -3 heures = 1 jour et 3 heures avant l&apos;événement<br />
+                                        Exemple : 0 jour et 2 heures = 2 heures après l&apos;événement
                                       </span>
                                     </div>
                                   </div>

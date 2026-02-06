@@ -27,7 +27,7 @@ export async function GET(
     // Verify the schedule belongs to the user
     const schedule = await Schedule.findById(id)
       .populate("messageTemplateId")
-      .lean();
+      .lean() as any;
 
     if (!schedule) {
       return NextResponse.json(
@@ -43,7 +43,7 @@ export async function GET(
     // Get the template to have message details
     const template = await Template.findById(
       schedule.messageTemplateId,
-    ).lean();
+    ).lean() as any;
 
     if (!template) {
       return NextResponse.json(
@@ -53,7 +53,7 @@ export async function GET(
     }
 
     // Get all sent messages for this schedule
-    const sentMessages = await SentMessage.find({
+    const sentMessages: any[] = await SentMessage.find({
       scheduleId: id,
     })
       .populate("phoneId")

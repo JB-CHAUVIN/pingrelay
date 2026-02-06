@@ -7,9 +7,10 @@ import { scheduleUpdateSchema } from "@/libs/validators/schedule.validator";
 // PUT /api/schedules/[id] - Update a schedule
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   await connectMongo();
+  const { id } = await params;
 
   const session = await auth();
   if (!session?.user?.id) {
@@ -22,7 +23,7 @@ export async function PUT(
 
     // Find schedule and check ownership
     const schedule = await Schedule.findOne({
-      _id: params.id,
+      _id: id,
       user: session.user.id,
     });
 
@@ -56,9 +57,10 @@ export async function PUT(
 // DELETE /api/schedules/[id] - Delete a schedule
 export async function DELETE(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   await connectMongo();
+  const { id } = await params;
 
   const session = await auth();
   if (!session?.user?.id) {
@@ -68,7 +70,7 @@ export async function DELETE(
   try {
     // Find and delete schedule, checking ownership
     const schedule = await Schedule.findOneAndDelete({
-      _id: params.id,
+      _id: id,
       user: session.user.id,
     });
 

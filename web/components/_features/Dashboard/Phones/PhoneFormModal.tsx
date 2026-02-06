@@ -71,7 +71,7 @@ const PhoneFormModal: React.FC<PhoneFormModalProps> = ({
     } catch (e) {
       if (e instanceof z.ZodError) {
         const newErrors: Record<string, string> = {};
-        e.errors.forEach((err) => {
+        e.issues.forEach((err) => {
           if (err.path[0]) {
             newErrors[err.path[0].toString()] = err.message;
           }
@@ -159,7 +159,6 @@ const PhoneFormModal: React.FC<PhoneFormModalProps> = ({
                       }
                       error={errors.phone}
                       placeholder="+33612345678"
-                      helperText="Format international requis (ex: +33612345678)"
                       required
                       disabled={isSubmitting}
                     />

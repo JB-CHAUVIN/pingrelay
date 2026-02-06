@@ -54,7 +54,7 @@ export default function SchedulesPage() {
     const fetchTemplates = async () => {
       setIsLoadingTemplates(true);
       try {
-        const response = await apiClient.get<{ items: Template[] }>("/templates?limit=100");
+        const response: { items: Template[] } = await apiClient.get("/templates?limit=100");
         setTemplates(response.items);
       } catch (error) {
         console.error("Failed to fetch templates:", error);

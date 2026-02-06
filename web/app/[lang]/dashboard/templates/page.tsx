@@ -65,7 +65,7 @@ export default function TemplatesPage() {
     const fetchPhones = async () => {
       setIsLoadingPhones(true);
       try {
-        const response = await apiClient.get<{ items: Phone[] }>(
+        const response: { items: Phone[] } = await apiClient.get(
           "/phones?limit=100",
         );
         setPhones(response.items);

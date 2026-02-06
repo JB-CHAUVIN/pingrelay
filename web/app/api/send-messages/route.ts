@@ -138,7 +138,7 @@ export async function POST(req: NextRequest) {
       status: { $in: ["pending", "running"] },
     })
       .populate("messageTemplateId")
-      .lean();
+      .lean() as any[];
 
     console.log(`[CRON] Found ${schedules.length} active schedules`);
 
@@ -174,7 +174,7 @@ export async function POST(req: NextRequest) {
         // Get the template
         const template = await Template.findById(
           schedule.messageTemplateId,
-        ).lean();
+        ).lean() as any;
 
         if (!template) {
           console.error(
@@ -196,7 +196,7 @@ export async function POST(req: NextRequest) {
         const now = moment();
 
         // Get messages from Message collection if available, otherwise use template.messages
-        const separateMessages = await Message.find({
+        const separateMessages: any[] = await Message.find({
           templateId: template._id,
         })
           .sort({ order: 1 })
@@ -328,7 +328,7 @@ export async function POST(req: NextRequest) {
             }
 
             // Get the phone to use
-            const phone = await Phone.findById(templateMessage.phoneId).lean();
+            const phone = await Phone.findById(templateMessage.phoneId).lean() as any;
 
             // Create or get SentMessage for tracking (do this early)
             const sentMessage = await getOrCreateSentMessage({

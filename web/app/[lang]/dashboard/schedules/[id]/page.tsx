@@ -61,7 +61,7 @@ export default function ScheduleDetailsPage() {
   const fetchData = async () => {
     try {
       setError(null);
-      const response = await apiClient.get<ApiResponse>(
+      const response: ApiResponse = await apiClient.get(
         `/schedules/${scheduleId}/sent-messages`,
       );
       setData(response);

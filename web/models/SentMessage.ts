@@ -42,7 +42,7 @@ export interface ISentMessage {
   updatedAt: Date;
 }
 
-const sentMessageSchema = new Schema<ISentMessage>(
+const sentMessageSchema = new Schema(
   {
     scheduleId: {
       type: Schema.Types.ObjectId,
@@ -142,5 +142,5 @@ sentMessageSchema.index({ status: 1, createdAt: 1 });
 
 sentMessageSchema.plugin(toJSON);
 
-export default models.SentMessage ||
-  model<ISentMessage>("SentMessage", sentMessageSchema);
+export default (models.SentMessage ||
+  model("SentMessage", sentMessageSchema)) as mongoose.Model<any>;

@@ -125,7 +125,7 @@ export async function GET(
     console.log("[API QR] QR code downloaded, size:", imageBuffer.length, "bytes");
 
     // Return the image directly with proper headers
-    return new NextResponse(imageBuffer, {
+    return new NextResponse(new Uint8Array(imageBuffer), {
       status: 200,
       headers: {
         "Content-Type": "image/png",

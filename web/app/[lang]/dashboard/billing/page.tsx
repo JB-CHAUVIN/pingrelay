@@ -18,7 +18,7 @@ interface UsageData {
 }
 
 export default function BillingPage() {
-  const { dict, lang } = useDictionary();
+  const { dict } = useDictionary();
   const [usageData, setUsageData] = useState<UsageData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [isPortalLoading, setIsPortalLoading] = useState(false);

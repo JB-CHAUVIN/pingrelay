@@ -24,7 +24,7 @@ const PhoneQRModal: React.FC<PhoneQRModalProps> = ({
   const [error, setError] = useState<string | null>(null);
   const [isPolling, setIsPolling] = useState(false);
   const [pollingStatus, setPollingStatus] = useState<string>("");
-  const pollingIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const pollingIntervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   console.log("[INFO] Open PhoneQRModal", isOpen, phoneId);
 

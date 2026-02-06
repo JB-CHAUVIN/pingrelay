@@ -16,7 +16,7 @@ export interface IMessage {
   updatedAt: Date;
 }
 
-const messageSchema = new Schema<IMessage>(
+const messageSchema = new Schema(
   {
     templateId: {
       type: Schema.Types.ObjectId,
@@ -83,4 +83,4 @@ messageSchema.index({ templateId: 1, order: 1 });
 
 messageSchema.plugin(toJSON);
 
-export default models.Message || model<IMessage>("Message", messageSchema);
+export default (models.Message || model("Message", messageSchema)) as mongoose.Model<any>;

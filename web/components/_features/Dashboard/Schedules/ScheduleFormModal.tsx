@@ -70,7 +70,7 @@ const ScheduleFormModal: React.FC<ScheduleFormModalProps> = ({
     } catch (e) {
       if (e instanceof z.ZodError) {
         const newErrors: Record<string, string> = {};
-        e.errors.forEach((err) => {
+        e.issues.forEach((err) => {
           const path = err.path.join(".");
           newErrors[path] = err.message;
         });

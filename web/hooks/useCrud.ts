@@ -67,7 +67,7 @@ export default function useCrud<TItem extends { id: string }, TCreateInput, TUpd
     async (page: number = currentPage) => {
       setIsLoading(true);
       try {
-        const response = await apiClient.get<PaginatedResponse<TItem>>(
+        const response: PaginatedResponse<TItem> = await apiClient.get(
           `${endpoint}?page=${page}&limit=${pageSize}`
         );
         setItems(response.items);
@@ -89,7 +89,7 @@ export default function useCrud<TItem extends { id: string }, TCreateInput, TUpd
     async (data: TCreateInput): Promise<TItem> => {
       setIsCreating(true);
       try {
-        const newItem = await apiClient.post<TItem>(endpoint, data);
+        const newItem: TItem = await apiClient.post(endpoint, data);
         toast.success("Created successfully");
 
         // Refresh the list
@@ -112,7 +112,7 @@ export default function useCrud<TItem extends { id: string }, TCreateInput, TUpd
     async (id: string, data: TUpdateInput): Promise<TItem> => {
       setIsUpdating(true);
       try {
-        const updatedItem = await apiClient.put<TItem>(`${endpoint}/${id}`, data);
+        const updatedItem: TItem = await apiClient.put(`${endpoint}/${id}`, data);
 
         // Optimistically update the list
         setItems((prev) =>
