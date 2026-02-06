@@ -5,24 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : premium">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/dashboard/billing/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/dashboard/billing/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/dashboard/schedules/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/dashboard/schedules/[id]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/dashboard/schedules/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/dashboard/schedules/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/dashboard/templates/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/dashboard/templates/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/phones/[id]/qr/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/phones/[id]/qr/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/schedules/[id]/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/schedules/[id]/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/schedules/[id]/sent-messages/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/schedules/[id]/sent-messages/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/send-messages/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/send-messages/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Phones/PhoneFormModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Phones/PhoneFormModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Phones/PhoneQRModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Phones/PhoneQRModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleFormModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Schedules/ScheduleFormModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Sidebar/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Templates/TemplateFormModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Templates/TemplateFormModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/hooks/useCrud.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/hooks/useCrud.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/models/Message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/Message.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/models/SentMessage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/SentMessage.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ecosystem.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,7 +121,7 @@
       <workItem from="1770281387549" duration="5146000" />
       <workItem from="1770288941894" duration="13576000" />
       <workItem from="1770366399748" duration="896000" />
-      <workItem from="1770367314456" duration="9747000" />
+      <workItem from="1770367314456" duration="10081000" />
     </task>
     <task id="LOCAL-00001" summary="tech : init project">
       <option name="closed" value="true" />
@@ -227,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770384332878</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feat : premium">
+      <option name="closed" value="true" />
+      <created>1770385693680</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1770385693680</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
