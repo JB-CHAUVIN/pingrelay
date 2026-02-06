@@ -135,7 +135,8 @@
       "phones": "Numeri",
       "templates": "Modelli di messaggi",
       "schedules": "Programmazioni",
-      "closeMenu": "Chiudi menu"
+      "closeMenu": "Chiudi menu",
+      "billing": "Abbonamento"
     },
     "phones": "Telefoni WhatsApp",
     "templates": "Template",
@@ -171,7 +172,34 @@
     "details": "Dettagli",
     "noActiveWebinars": "Nessun webinar attivo",
     "noActiveWebinarsDesc": "Crea una nuova programmazione per avviare l'invio automatico dei tuoi messaggi WhatsApp.",
-    "createSchedule": "Crea una programmazione"
+    "createSchedule": "Crea una programmazione",
+    "subscriptionBanner": {
+      "noSubscription": "Non hai un abbonamento attivo.",
+      "subscribe": "Abbonati",
+      "planBadge": "Piano {plan}",
+      "messagesUsage": "{count} / {limit} messaggi questo mese",
+      "messagesUnlimited": "{count} messaggi su illimitato",
+      "warningLimit": "Ti stai avvicinando al tuo limite di messaggi!"
+    }
+  },
+  "billing": {
+    "title": "Abbonamento",
+    "pageDescription": "Gestisci il tuo abbonamento e consulta il tuo utilizzo",
+    "currentPlan": "Piano attuale",
+    "noPlan": "Nessun abbonamento",
+    "noPlanDescription": "Non hai un abbonamento attivo. Scegli un piano per sbloccare tutte le funzionalità.",
+    "choosePlan": "Scegli un piano",
+    "manageSubscription": "Gestisci il mio abbonamento",
+    "usage": "Utilizzo",
+    "messagesThisMonth": "Messaggi questo mese",
+    "templates": "Modelli",
+    "of": "su",
+    "unlimited": "illimitato",
+    "subscriptionRequired": "Abbonamento richiesto",
+    "subscriptionRequiredDesc": "Hai bisogno di un abbonamento attivo per utilizzare questa funzionalità.",
+    "goToBilling": "Vedi i piani",
+    "templateLimitReached": "Limite di modelli raggiunto",
+    "templateLimitReachedDesc": "Aggiorna il tuo piano per creare più modelli."
   },
   "phones": {
     "title": "Telefoni WhatsApp",

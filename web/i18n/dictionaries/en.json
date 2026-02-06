@@ -135,7 +135,8 @@
       "phones": "Phones",
       "templates": "Message Templates",
       "schedules": "Schedules",
-      "closeMenu": "Close menu"
+      "closeMenu": "Close menu",
+      "billing": "Subscription"
     },
     "phones": "WhatsApp Phones",
     "templates": "Templates",
@@ -171,7 +172,34 @@
     "details": "Details",
     "noActiveWebinars": "No active webinars",
     "noActiveWebinarsDesc": "Create a new schedule to start automatically sending your WhatsApp messages.",
-    "createSchedule": "Create a schedule"
+    "createSchedule": "Create a schedule",
+    "subscriptionBanner": {
+      "noSubscription": "You don't have an active subscription.",
+      "subscribe": "Subscribe",
+      "planBadge": "{plan} Plan",
+      "messagesUsage": "{count} / {limit} messages this month",
+      "messagesUnlimited": "{count} messages on unlimited",
+      "warningLimit": "You're approaching your message limit!"
+    }
+  },
+  "billing": {
+    "title": "Subscription",
+    "pageDescription": "Manage your subscription and view your usage",
+    "currentPlan": "Current plan",
+    "noPlan": "No subscription",
+    "noPlanDescription": "You don't have an active subscription. Choose a plan to unlock all features.",
+    "choosePlan": "Choose a plan",
+    "manageSubscription": "Manage my subscription",
+    "usage": "Usage",
+    "messagesThisMonth": "Messages this month",
+    "templates": "Templates",
+    "of": "of",
+    "unlimited": "unlimited",
+    "subscriptionRequired": "Subscription required",
+    "subscriptionRequiredDesc": "You need an active subscription to use this feature.",
+    "goToBilling": "View plans",
+    "templateLimitReached": "Template limit reached",
+    "templateLimitReachedDesc": "Upgrade your plan to create more templates."
   },
   "phones": {
     "title": "WhatsApp Phones",

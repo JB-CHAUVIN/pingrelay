@@ -20,6 +20,9 @@ export const ERROR_CODES = {
   IMAGE_SEND_FAILED: "IMAGE_SEND_FAILED",
   VIDEO_SEND_FAILED: "VIDEO_SEND_FAILED",
 
+  // Limit errors
+  MESSAGE_LIMIT_REACHED: "MESSAGE_LIMIT_REACHED",
+
   // General errors
   UNKNOWN_ERROR: "UNKNOWN_ERROR",
 } as const;
@@ -35,6 +38,7 @@ export const ERROR_MESSAGES: Record<ErrorCode, string> = {
   PHONE_NOT_CONNECTED: "Téléphone non connecté",
   GROUP_NOT_FOUND: "Groupe WhatsApp non trouvé",
   GROUP_ID_MISSING: "ID du groupe manquant",
+  MESSAGE_LIMIT_REACHED: "Limite de messages mensuelle atteinte",
   MESSAGE_SEND_FAILED: "Échec de l'envoi du message",
   IMAGE_SEND_FAILED: "Échec de l'envoi de l'image",
   VIDEO_SEND_FAILED: "Échec de l'envoi de la vidéo",

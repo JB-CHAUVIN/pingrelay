@@ -69,6 +69,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen = true, onClose }) => {
         {renderItem(`/${lang}/dashboard/phones`, "📱", dict.dashboard.sidebar.phones)}
         {renderItem(`/${lang}/dashboard/templates`, "💬", dict.dashboard.sidebar.templates)}
         {renderItem(`/${lang}/dashboard/schedules`, "📅", dict.dashboard.sidebar.schedules)}
+        {renderItem(`/${lang}/dashboard/billing`, "💳", dict.dashboard.sidebar.billing)}
       </nav>
     </div>
   );

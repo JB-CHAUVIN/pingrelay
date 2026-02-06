@@ -21,14 +21,14 @@ const userSchema = new mongoose.Schema(
     customerId: {
       type: String,
       validate(value: string) {
-        return value.includes("cus_");
+        return !value || value.includes("cus_");
       },
     },
     // Used in the Stripe webhook. should match a plan in config.js file.
     priceId: {
       type: String,
       validate(value: string) {
-        return value.includes("price_");
+        return !value || value.includes("price_");
       },
     },
     // Used to determine if the user has access to the product—it's turn on/off by the Stripe webhook

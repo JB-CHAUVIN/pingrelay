@@ -2,6 +2,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { auth } from "@/libs/next-auth";
 import connectMongo from "@/libs/mongoose";
 import Phone from "@/models/Phones";
+import User from "@/models/User";
 import { phoneCreateSchema } from "@/libs/validators/phone.validator";
 import { createSession } from "@/libs/waha";
 
@@ -54,6 +55,15 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    // Check subscription access
+    const user = await User.findById(session.user.id).lean() as any;
+    if (!user?.hasAccess) {
+      return NextResponse.json(
+        { error: "Subscription required" },
+        { status: 403 },
+      );
+    }
+
     const body = await req.json();
 
     // Validate with Zod

@@ -5,9 +5,11 @@ import Phones from "@/models/Phones";
 import Template from "@/models/Template";
 import Schedule from "@/models/Schedule";
 import SentMessage from "@/models/SentMessage";
+import User from "@/models/User";
 import Link from "next/link";
 import { getDictionary } from "@/i18n/get-dictionary";
 import { i18n, type Locale } from "@/i18n/config";
+import { getMonthlyMessageCount, getUserPlan, getPlanLimits } from "@/libs/usage";
 
 export const dynamic = "force-dynamic";
 
@@ -64,6 +66,12 @@ async function getDashboardData(userId: string) {
     })
   );
 
+  // Fetch user subscription info
+  const user = await User.findById(userId).lean() as any;
+  const plan = getUserPlan(user?.priceId || null);
+  const limits = getPlanLimits(user?.priceId || null);
+  const messagesThisMonth = await getMonthlyMessageCount(userId);
+
   return {
     stats: {
       phones: phoneCount,
@@ -71,6 +79,14 @@ async function getDashboardData(userId: string) {
       schedules: scheduleCount,
     },
     activeSchedules: schedulesWithProgress,
+    subscription: {
+      hasAccess: user?.hasAccess || false,
+      planName: plan?.name || null,
+      messagesThisMonth,
+      messagesLimit: limits.messagesPerMonth,
+      templates: templateCount,
+      templatesLimit: limits.templates,
+    },
   };
 }
 
@@ -113,6 +129,84 @@ export default async function Dashboard({
             {dict.dashboard.description}
           </p>
         </div>
+
+        {/* Subscription Banner */}
+        {!data.subscription.hasAccess ? (
+          <div className="alert alert-warning shadow-lg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              className="stroke-current shrink-0 w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
+            <div className="flex-1">
+              <p className="font-semibold">
+                {dict.dashboard.subscriptionBanner.noSubscription}
+              </p>
+            </div>
+            <Link
+              href={`/${lang}/dashboard/billing`}
+              className="btn btn-primary btn-sm"
+            >
+              {dict.dashboard.subscriptionBanner.subscribe}
+            </Link>
+          </div>
+        ) : (
+          <div className="bg-base-100 rounded-xl shadow-lg p-4 border border-base-300">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="badge badge-primary badge-lg">
+                  {data.subscription.planName}
+                </div>
+                {data.subscription.messagesLimit === -1 ? (
+                  <span className="text-sm text-base-content/70">
+                    {dict.dashboard.subscriptionBanner.messagesUnlimited
+                      .replace("{count}", String(data.subscription.messagesThisMonth))}
+                  </span>
+                ) : (
+                  <span className="text-sm text-base-content/70">
+                    {dict.dashboard.subscriptionBanner.messagesUsage
+                      .replace("{count}", String(data.subscription.messagesThisMonth))
+                      .replace("{limit}", String(data.subscription.messagesLimit))}
+                  </span>
+                )}
+              </div>
+              <div className="flex items-center gap-3 min-w-[200px]">
+                {data.subscription.messagesLimit === -1 ? (
+                  <progress
+                    className="progress progress-success w-full"
+                    value={100}
+                    max="100"
+                  ></progress>
+                ) : (
+                  <>
+                    <progress
+                      className={`progress w-full ${
+                        data.subscription.messagesThisMonth / data.subscription.messagesLimit > 0.8
+                          ? "progress-warning"
+                          : "progress-primary"
+                      }`}
+                      value={data.subscription.messagesThisMonth}
+                      max={data.subscription.messagesLimit}
+                    ></progress>
+                    {data.subscription.messagesThisMonth / data.subscription.messagesLimit > 0.8 && (
+                      <span className="text-xs text-warning font-semibold whitespace-nowrap">
+                        {dict.dashboard.subscriptionBanner.warningLimit}
+                      </span>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">

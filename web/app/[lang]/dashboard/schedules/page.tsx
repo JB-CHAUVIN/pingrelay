@@ -10,11 +10,20 @@ import { Template } from "@/types/template.types";
 import { ScheduleCreateInput, ScheduleUpdateInput } from "@/libs/validators/schedule.validator";
 import apiClient from "@/libs/api";
 import { useDictionary } from "@/i18n/dictionary-provider";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
 export default function SchedulesPage() {
-  const { dict } = useDictionary();
+  const { dict, lang } = useDictionary();
+  const [hasAccess, setHasAccess] = useState(true);
+
+  useEffect(() => {
+    apiClient
+      .get("/usage")
+      .then((data: any) => setHasAccess(data.hasAccess))
+      .catch(() => {});
+  }, []);
   const {
     items: schedules,
     totalPages,
@@ -100,22 +109,53 @@ export default function SchedulesPage() {
                 {dict.schedules.pageDescription}
               </p>
             </div>
-            <button
-              className="btn btn-primary"
-              onClick={handleCreate}
-              disabled={isLoadingTemplates}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                className="w-5 h-5"
+            {hasAccess ? (
+              <button
+                className="btn btn-primary"
+                onClick={handleCreate}
+                disabled={isLoadingTemplates}
               >
-                <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
-              </svg>
-              {dict.schedules.createSchedule}
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                </svg>
+                {dict.schedules.createSchedule}
+              </button>
+            ) : (
+              <div className="tooltip" data-tip={dict.billing.subscriptionRequired}>
+                <button className="btn btn-primary btn-disabled" disabled>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                  </svg>
+                  {dict.schedules.createSchedule}
+                </button>
+              </div>
+            )}
           </div>
+
+          {!hasAccess && (
+            <div className="alert alert-warning mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-current shrink-0 w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+              </svg>
+              <div className="flex-1">
+                <p className="font-semibold">{dict.billing.subscriptionRequired}</p>
+                <p className="text-sm">{dict.billing.subscriptionRequiredDesc}</p>
+              </div>
+              <Link href={`/${lang}/dashboard/billing`} className="btn btn-primary btn-sm">
+                {dict.billing.goToBilling}
+              </Link>
+            </div>
+          )}
 
           <ScheduleList
             schedules={schedules}

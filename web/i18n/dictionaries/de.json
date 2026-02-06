@@ -135,7 +135,8 @@
       "phones": "Nummern",
       "templates": "Nachrichtenvorlagen",
       "schedules": "Planungen",
-      "closeMenu": "Menü schließen"
+      "closeMenu": "Menü schließen",
+      "billing": "Abonnement"
     },
     "phones": "WhatsApp-Telefone",
     "templates": "Vorlagen",
@@ -171,7 +172,34 @@
     "details": "Details",
     "noActiveWebinars": "Keine aktiven Webinare",
     "noActiveWebinarsDesc": "Erstellen Sie eine neue Planung, um den automatischen Versand Ihrer WhatsApp-Nachrichten zu starten.",
-    "createSchedule": "Planung erstellen"
+    "createSchedule": "Planung erstellen",
+    "subscriptionBanner": {
+      "noSubscription": "Sie haben kein aktives Abonnement.",
+      "subscribe": "Abonnieren",
+      "planBadge": "Plan {plan}",
+      "messagesUsage": "{count} / {limit} Nachrichten diesen Monat",
+      "messagesUnlimited": "{count} Nachrichten auf unbegrenzt",
+      "warningLimit": "Sie nähern sich Ihrem Nachrichtenlimit!"
+    }
+  },
+  "billing": {
+    "title": "Abonnement",
+    "pageDescription": "Verwalten Sie Ihr Abonnement und sehen Sie Ihre Nutzung ein",
+    "currentPlan": "Aktueller Plan",
+    "noPlan": "Kein Abonnement",
+    "noPlanDescription": "Sie haben kein aktives Abonnement. Wählen Sie einen Plan, um alle Funktionen freizuschalten.",
+    "choosePlan": "Plan wählen",
+    "manageSubscription": "Mein Abonnement verwalten",
+    "usage": "Nutzung",
+    "messagesThisMonth": "Nachrichten diesen Monat",
+    "templates": "Vorlagen",
+    "of": "von",
+    "unlimited": "unbegrenzt",
+    "subscriptionRequired": "Abonnement erforderlich",
+    "subscriptionRequiredDesc": "Sie benötigen ein aktives Abonnement, um diese Funktion zu nutzen.",
+    "goToBilling": "Pläne ansehen",
+    "templateLimitReached": "Vorlagenlimit erreicht",
+    "templateLimitReachedDesc": "Upgraden Sie Ihren Plan, um mehr Vorlagen zu erstellen."
   },
   "phones": {
     "title": "WhatsApp-Telefone",

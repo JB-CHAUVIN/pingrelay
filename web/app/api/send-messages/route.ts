@@ -5,6 +5,7 @@ import Template from "@/models/Template";
 import Message from "@/models/Message";
 import Phone from "@/models/Phones";
 import SentMessage from "@/models/SentMessage";
+import User from "@/models/User";
 import {
   sendTextMessage,
   sendImage,
@@ -15,6 +16,7 @@ import {
 } from "@/libs/waha";
 import moment from "moment";
 import { ERROR_CODES, type ErrorCode } from "@/libs/error-codes";
+import { getMonthlyMessageCount, getPlanLimits } from "@/libs/usage";
 
 /**
  * Helper function to log and update SentMessage
@@ -152,6 +154,23 @@ export async function POST(req: NextRequest) {
       try {
         results.processed++;
 
+        // Check user access and limits
+        const scheduleUser = await User.findById(schedule.user).lean() as any;
+        if (!scheduleUser?.hasAccess) {
+          console.log(
+            `[CRON] Skipping schedule ${schedule._id} - user has no access`,
+          );
+          continue;
+        }
+
+        const userLimits = getPlanLimits(scheduleUser.priceId || null);
+        let userMessageCount: number | null = null;
+        if (userLimits.messagesPerMonth !== -1) {
+          userMessageCount = await getMonthlyMessageCount(
+            schedule.user.toString(),
+          );
+        }
+
         // Get the template
         const template = await Template.findById(
           schedule.messageTemplateId,
@@ -259,6 +278,52 @@ export async function POST(req: NextRequest) {
 
             if (existingSentMessage && existingSentMessage.status === "sent") {
               console.log(`[CRON] Message ${messageIndex + 1} already sent`);
+              continue;
+            }
+
+            // Check monthly message limit before sending
+            if (
+              userLimits.messagesPerMonth !== -1 &&
+              userMessageCount !== null &&
+              userMessageCount >= userLimits.messagesPerMonth
+            ) {
+              console.log(
+                `[CRON] Message limit reached for user ${schedule.user} (${userMessageCount}/${userLimits.messagesPerMonth})`,
+              );
+              const limitSentMessage = await getOrCreateSentMessage({
+                scheduleId: schedule._id,
+                messageId: templateMessage._id || null,
+                messageIndex,
+                phoneId: templateMessage.phoneId,
+                messageSnapshot: {
+                  sendTimeType: templateMessage.sendTimeType || "fixed_time",
+                  sendOnDay: templateMessage.sendOnDay,
+                  sendOnHour: templateMessage.sendOnHour,
+                  messageTemplate: templateMessage.messageTemplate,
+                  image: templateMessage.image,
+                  video: templateMessage.video,
+                },
+              });
+              await SentMessage.findByIdAndUpdate(limitSentMessage._id, {
+                status: "failed",
+                errorCode: ERROR_CODES.MESSAGE_LIMIT_REACHED,
+                errorData: {
+                  count: userMessageCount,
+                  limit: userLimits.messagesPerMonth,
+                },
+                error: "Monthly message limit reached",
+                lastErrorDate: new Date(),
+              });
+              await logSentMessage(
+                limitSentMessage._id.toString(),
+                ERROR_CODES.MESSAGE_LIMIT_REACHED,
+                {
+                  count: userMessageCount,
+                  limit: userLimits.messagesPerMonth,
+                },
+              );
+              results.errors++;
+              allMessagesSent = false;
               continue;
             }
 
@@ -463,6 +528,11 @@ export async function POST(req: NextRequest) {
               );
               results.messagesSent++;
               firstMessageSent = true;
+
+              // Increment local counter for limit tracking within this CRON run
+              if (userMessageCount !== null) {
+                userMessageCount++;
+              }
 
               // Add delay between message groups (anti-blocking)
               const groupDelay = getRandomDelay(5, 20);

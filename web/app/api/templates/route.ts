@@ -3,8 +3,10 @@ import { auth } from "@/libs/next-auth";
 import connectMongo from "@/libs/mongoose";
 import Template from "@/models/Template";
 import Phone from "@/models/Phones";
+import User from "@/models/User";
 import { templateCreateSchema } from "@/libs/validators/template.validator";
 import { syncTemplateMessages } from "@/libs/template-message-sync";
+import { getPlanLimits } from "@/libs/usage";
 
 // GET /api/templates - List templates with pagination
 export async function GET(req: NextRequest) {
@@ -55,6 +57,27 @@ export async function POST(req: NextRequest) {
   }
 
   try {
+    // Check subscription access
+    const user = await User.findById(session.user.id).lean() as any;
+    if (!user?.hasAccess) {
+      return NextResponse.json(
+        { error: "Subscription required" },
+        { status: 403 },
+      );
+    }
+
+    // Check template limit
+    const limits = getPlanLimits(user.priceId || null);
+    if (limits.templates !== -1) {
+      const currentCount = await Template.countDocuments({ user: session.user.id });
+      if (currentCount >= limits.templates) {
+        return NextResponse.json(
+          { error: "Template limit reached" },
+          { status: 403 },
+        );
+      }
+    }
+
     const body = await req.json();
 
     // Validate with Zod

@@ -38,6 +38,10 @@ export interface ConfigProps {
       description?: string;
       price: number;
       priceAnchor?: number;
+      limits?: {
+        messagesPerMonth: number; // -1 = unlimited
+        templates: number; // -1 = unlimited
+      };
       features: {
         name: string;
       }[];

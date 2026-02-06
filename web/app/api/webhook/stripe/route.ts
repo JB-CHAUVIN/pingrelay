@@ -1,10 +1,10 @@
-import { NextResponse, NextRequest } from "next/server";
-import { headers } from "next/headers";
+import {NextRequest, NextResponse} from "next/server";
+import {headers} from "next/headers";
 import Stripe from "stripe";
 import connectMongo from "@/libs/mongoose";
 import configFile from "@/config";
 import User from "@/models/User";
-import { findCheckoutSession } from "@/libs/stripe";
+import {findCheckoutSession} from "@/libs/stripe";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
   apiVersion: "2023-08-16",
@@ -84,6 +84,13 @@ export async function POST(req: NextRequest) {
         user.hasAccess = true;
         await user.save();
 
+        console.log('[INFO] checkout.session.completed - User updated', {
+          userId: user._id,
+          customerId,
+          priceId,
+          hasAccess: true,
+        });
+
         // Extra: send email with user link, product page, etc...
         // try {
         //   await sendEmail(...);
@@ -102,8 +109,34 @@ export async function POST(req: NextRequest) {
 
       case "customer.subscription.updated": {
         // The customer might have changed the plan (higher or lower plan, cancel soon etc...)
-        // You don't need to do anything here, because Stripe will let us know when the subscription is canceled for good (at the end of the billing cycle) in the "customer.subscription.deleted" event
-        // You can update the user data to show a "Subscription ending soon" badge for instance
+        const stripeObject: Stripe.Subscription = event.data
+          .object as Stripe.Subscription;
+
+        const user = await User.findOne({
+          customerId: stripeObject.customer,
+        });
+
+        if (user) {
+          // If subscription is cancelled (cancel_at_period_end or status canceled/unpaid)
+          if (
+            stripeObject.cancel_at_period_end ||
+            stripeObject.status === "canceled" ||
+            stripeObject.status === "unpaid"
+          ) {
+            user.hasAccess = false;
+            user.priceId = null;
+            await user.save();
+          } else if (stripeObject.status === "active") {
+            // Plan change or reactivation — update priceId and grant access
+            const newPriceId = stripeObject.items.data[0]?.price?.id;
+            if (newPriceId) {
+              user.priceId = newPriceId;
+            }
+            user.hasAccess = true;
+            await user.save();
+          }
+        }
+
         break;
       }
 
@@ -116,10 +149,19 @@ export async function POST(req: NextRequest) {
         const subscription = await stripe.subscriptions.retrieve(
           stripeObject.id
         );
-        const user = await User.findOne({ customerId: subscription.customer });
+        const customerId = subscription.customer;
+        const user = await User.findOne({ customerId });
 
-        // Revoke access to your product
+        console.log('[INFO] Stripe customer.subscription.deleted', { customerId });
+
+        if (!user) {
+          console.error(`[WEBHOOK] No user found with customerId: ${customerId}`);
+          break;
+        }
+
+        // Revoke access to your product and clear priceId
         user.hasAccess = false;
+        user.priceId = null;
         await user.save();
 
         break;

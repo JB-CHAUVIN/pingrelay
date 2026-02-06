@@ -38,9 +38,13 @@ const config = {
         price: 29,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
         priceAnchor: 49,
+        limits: {
+          messagesPerMonth: 300,
+          templates: 3,
+        },
         features: [
           {
-            name: "Jusqu'à 100 messages",
+            name: "Jusqu'à 300 messages",
           },
           { name: "Messages automatisés" },
           { name: "3 modèles de messages" },
@@ -58,6 +62,10 @@ const config = {
         description: "Pour les webinaires à fort impact",
         price: 79,
         priceAnchor: 129,
+        limits: {
+          messagesPerMonth: -1, // -1 = unlimited
+          templates: -1, // -1 = unlimited
+        },
         features: [
           {
             name: "Participants illimités",
