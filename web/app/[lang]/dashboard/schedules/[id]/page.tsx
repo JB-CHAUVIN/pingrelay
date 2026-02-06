@@ -12,6 +12,7 @@ import { useDictionary } from "@/i18n/dictionary-provider";
 
 interface SentMessage {
   messageIndex: number;
+  sendTimeType?: "fixed_time" | "event_time" | "relative_time";
   sendOnDay: string;
   sendOnHour: string;
   messageTemplate: string;

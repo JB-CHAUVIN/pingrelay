@@ -10,6 +10,7 @@ interface SentMessageLog {
 
 interface SentMessage {
   messageIndex: number;
+  sendTimeType?: "fixed_time" | "event_time" | "relative_time";
   sendOnDay: string;
   sendOnHour: string;
   messageTemplate: string;
@@ -58,15 +59,39 @@ const SentMessagesList: React.FC<SentMessagesListProps> = ({
     return <span className={`badge ${config.className}`}>{config.label}</span>;
   };
 
-  const calculateExecutionDate = (sendOnDay: string, sendOnHour: string) => {
+  const calculateExecutionDate = (message: SentMessage) => {
     const eventDateObj = new Date(eventDate);
-    const days = parseInt(sendOnDay);
-    const [hours, minutes] = sendOnHour.split(":").map(Number);
+    const type = message.sendTimeType || "fixed_time";
 
+    if (type === "event_time") {
+      // Send exactly at the event date/time
+      return new Date(eventDateObj);
+    }
+
+    if (type === "relative_time") {
+      // Add/subtract days and signed hours/minutes from event time
+      const days = parseInt(message.sendOnDay) || 0;
+      const hourStr = message.sendOnHour;
+      const negative = hourStr.startsWith("-");
+      const clean = negative ? hourStr.slice(1) : hourStr;
+      const [h, m] = clean.split(":").map(Number);
+      const parsedHours = negative ? -(h || 0) : (h || 0);
+      const parsedMinutes = negative ? -(m || 0) : (m || 0);
+
+      const executionDate = new Date(eventDateObj);
+      executionDate.setDate(executionDate.getDate() + days);
+      executionDate.setHours(executionDate.getHours() + parsedHours);
+      executionDate.setMinutes(executionDate.getMinutes() + parsedMinutes);
+      executionDate.setSeconds(0, 0);
+      return executionDate;
+    }
+
+    // fixed_time: Add days and set specific clock time
+    const days = parseInt(message.sendOnDay) || 0;
+    const [hours, minutes] = message.sendOnHour.split(":").map(Number);
     const executionDate = new Date(eventDateObj);
     executionDate.setDate(executionDate.getDate() + days);
     executionDate.setHours(hours, minutes, 0, 0);
-
     return executionDate;
   };
 
@@ -80,8 +105,8 @@ const SentMessagesList: React.FC<SentMessagesListProps> = ({
     });
   };
 
-  const isDue = (sendOnDay: string, sendOnHour: string) => {
-    const executionDate = calculateExecutionDate(sendOnDay, sendOnHour);
+  const isDue = (message: SentMessage) => {
+    const executionDate = calculateExecutionDate(message);
     return new Date() >= executionDate;
   };
 
@@ -105,12 +130,9 @@ const SentMessagesList: React.FC<SentMessagesListProps> = ({
       {/* Messages list */}
       <div className="space-y-3">
         {messages.map((message) => {
-          const executionDate = calculateExecutionDate(
-            message.sendOnDay,
-            message.sendOnHour,
-          );
+          const executionDate = calculateExecutionDate(message);
           const isExpanded = expandedIndex === message.messageIndex;
-          const shouldBeSent = isDue(message.sendOnDay, message.sendOnHour);
+          const shouldBeSent = isDue(message);
 
           return (
             <div
