@@ -235,14 +235,21 @@ export async function POST(req: NextRequest) {
               // event_time: Send exactly at the event date/time
               executionDate = eventDate.clone();
             } else if (sendTimeType === "relative_time") {
-              // relative_time: Add/subtract days AND hours from event date
+              // relative_time: Add/subtract days AND hours/minutes from event date
+              // sendOnHour format: "-06:30" or "02:15" (signed)
               const sendOnDay = parseInt(templateMessage.sendOnDay);
-              const sendOnHour = parseInt(templateMessage.sendOnHour.split(":")[0]);
+              const hourStr = templateMessage.sendOnHour as string;
+              const negative = hourStr.startsWith("-");
+              const clean = negative ? hourStr.slice(1) : hourStr;
+              const [h, m] = clean.split(":").map(Number);
+              const parsedHours = negative ? -(h || 0) : (h || 0);
+              const parsedMinutes = negative ? -(m || 0) : (m || 0);
 
               executionDate = eventDate
                 .clone()
                 .add(sendOnDay, "days")
-                .add(sendOnHour, "hours");
+                .add(parsedHours, "hours")
+                .add(parsedMinutes, "minutes");
             } else {
               // fixed_time: Add days and set specific time
               const sendOnDay = parseInt(templateMessage.sendOnDay);

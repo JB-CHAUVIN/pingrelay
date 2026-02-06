@@ -95,6 +95,10 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
     }
   }, [isOpen, template]);
 
+  const hasMessageErrors = (index: number, errorMap: Record<string, string>): boolean => {
+    return Object.keys(errorMap).some((key) => key.startsWith(`messages.${index}.`));
+  };
+
   const validateForm = (): boolean => {
     try {
       templateCreateSchema.parse(formData);
@@ -109,6 +113,15 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
           newErrors[path] = err.message;
         });
         setErrors(newErrors);
+
+        // Auto-expand messages that have errors
+        const toExpand: Record<number, boolean> = { ...expandedMessages };
+        formData.messages.forEach((_, index) => {
+          if (hasMessageErrors(index, newErrors)) {
+            toExpand[index] = true;
+          }
+        });
+        setExpandedMessages(toExpand);
       } else {
         console.error("Non-Zod validation error:", e);
       }
@@ -205,21 +218,34 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
     }));
   };
 
+  // Helper to parse signed sendOnHour format like "-06:30" or "02:15"
+  const parseRelativeHour = (sendOnHour: string): { negative: boolean; hours: number; minutes: number } => {
+    const negative = sendOnHour.startsWith("-");
+    const clean = negative ? sendOnHour.slice(1) : sendOnHour;
+    const [h, m] = clean.split(":").map(Number);
+    return { negative, hours: h || 0, minutes: m || 0 };
+  };
+
   // Helper to update relative time values (for relative_time mode)
-  const updateRelativeTime = (index: number, days: string, hours: string) => {
+  const updateRelativeTime = (index: number, days: string, hours: string, minutes: string) => {
     setFormData((prev) => ({
       ...prev,
       messages: prev.messages.map((msg, i) => {
         if (i === index) {
-          // Convert days and hours to sendOnDay and sendOnHour
-          // For "1 jour et 3 heures avant" → days="-1", hours="-3" → sendOnDay="-1", sendOnHour="03:00"
           const numDays = parseInt(days) || 0;
-          const numHours = Math.abs(parseInt(hours) || 0);
+          const numHours = parseInt(hours) || 0;
+          const numMinutes = parseInt(minutes) || 0;
+
+          // The sign applies to the whole hours:minutes block
+          const negative = numHours < 0;
+          const absHours = Math.abs(numHours);
+          const absMinutes = Math.abs(numMinutes);
+          const sign = negative ? "-" : "";
 
           return {
             ...msg,
             sendOnDay: numDays.toString(),
-            sendOnHour: `${numHours.toString().padStart(2, '0')}:00`,
+            sendOnHour: `${sign}${absHours.toString().padStart(2, '0')}:${absMinutes.toString().padStart(2, '0')}`,
           };
         }
         return msg;
@@ -241,9 +267,11 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
 
     if (type === "relative_time") {
       const days = parseInt(message.sendOnDay || "0");
-      const hours = parseInt(message.sendOnHour.split(':')[0] || "0");
+      const parsed = parseRelativeHour(message.sendOnHour || "00:00");
+      const hours = parsed.negative ? -parsed.hours : parsed.hours;
+      const minutes = parsed.negative ? -parsed.minutes : parsed.minutes;
 
-      if (days === 0 && hours === 0) {
+      if (days === 0 && hours === 0 && minutes === 0) {
         return "📅 À l'heure de l'événement";
       }
 
@@ -259,9 +287,14 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
         parts.push(`${Math.abs(hours)} ${hourLabel}`);
       }
 
+      if (minutes !== 0) {
+        parts.push(`${Math.abs(minutes)} min`);
+      }
+
       const timeStr = parts.join(" et ");
-      const prefix = (days < 0 || (days === 0 && hours < 0)) ? "⏪" : "⏩";
-      const direction = (days < 0 || (days === 0 && hours < 0)) ? "avant" : "après";
+      const isNegative = days < 0 || (days === 0 && (hours < 0 || (hours === 0 && minutes < 0)));
+      const prefix = isNegative ? "⏪" : "⏩";
+      const direction = isNegative ? "avant" : "après";
 
       return `${prefix} ${timeStr} ${direction} l'événement`;
     }
@@ -415,7 +448,12 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                     />
                                   </svg>
                                   <div className="flex-1">
-                                    <h4 className="font-medium">Message {originalIndex + 1}</h4>
+                                    <div className="flex items-center gap-2">
+                                      <h4 className="font-medium">Message {originalIndex + 1}</h4>
+                                      {!expandedMessages[originalIndex] && hasMessageErrors(originalIndex, errors) && (
+                                        <span className="badge badge-error badge-sm">Erreur</span>
+                                      )}
+                                    </div>
                                     <p className="text-sm text-base-content/60 mt-1">
                                       {getMessagePreview(message.messageTemplate)}
                                     </p>
@@ -515,17 +553,20 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                 )}
 
                                 {/* Relative Time Mode */}
-                                {message.sendTimeType === "relative_time" && (
+                                {message.sendTimeType === "relative_time" && (() => {
+                                  const parsed = parseRelativeHour(message.sendOnHour || "00:00");
+                                  const displayHours = parsed.negative ? `-${parsed.hours}` : `${parsed.hours}`;
+                                  const displayMinutes = `${parsed.minutes}`;
+                                  return (
                                   <div className="space-y-4">
-                                    <div className="grid grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-3 gap-4">
                                       <Input
                                         label="Jours (avant: -, après: +)"
                                         name={`messages.${originalIndex}.relativeDays`}
                                         type="number"
                                         value={message.sendOnDay}
                                         onChange={(value) => {
-                                          const hours = message.sendOnHour.split(':')[0];
-                                          updateRelativeTime(originalIndex, value, hours);
+                                          updateRelativeTime(originalIndex, value, displayHours, displayMinutes);
                                         }}
                                         placeholder="0"
                                         disabled={isSubmitting}
@@ -535,9 +576,21 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                         label="Heures (avant: -, après: +)"
                                         name={`messages.${originalIndex}.relativeHours`}
                                         type="number"
-                                        value={message.sendOnHour.split(':')[0]}
+                                        value={displayHours}
                                         onChange={(value) => {
-                                          updateRelativeTime(originalIndex, message.sendOnDay, value);
+                                          updateRelativeTime(originalIndex, message.sendOnDay, value, displayMinutes);
+                                        }}
+                                        placeholder="0"
+                                        disabled={isSubmitting}
+                                      />
+
+                                      <Input
+                                        label="Minutes"
+                                        name={`messages.${originalIndex}.relativeMinutes`}
+                                        type="number"
+                                        value={displayMinutes}
+                                        onChange={(value) => {
+                                          updateRelativeTime(originalIndex, message.sendOnDay, displayHours, value);
                                         }}
                                         placeholder="0"
                                         disabled={isSubmitting}
@@ -559,11 +612,12 @@ const TemplateFormModal: React.FC<TemplateFormModalProps> = ({
                                       </svg>
                                       <span className="text-sm">
                                         Exemple : -1 jour et -3 heures = 1 jour et 3 heures avant l&apos;événement<br />
-                                        Exemple : 0 jour et 2 heures = 2 heures après l&apos;événement
+                                        Exemple : 0 jour et 2 heures 30 min = 2h30 après l&apos;événement
                                       </span>
                                     </div>
                                   </div>
-                                )}
+                                  );
+                                })()}
 
                                 <TextArea
                                   label="Contenu du message"

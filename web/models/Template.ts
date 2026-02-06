@@ -27,9 +27,9 @@ const templateMessageSchema = new mongoose.Schema({
     required: [true, "Send on hour is required"],
     validate: {
       validator: function(v: string) {
-        return /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(v);
+        return /^-?([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(v);
       },
-      message: "Invalid time format (must be HH:mm)"
+      message: "Invalid time format (must be HH:mm or -HH:mm)"
     }
   },
   messageTemplate: {

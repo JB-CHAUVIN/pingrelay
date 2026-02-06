@@ -50,9 +50,9 @@ const messageSchema = new Schema(
       required: true,
       validate: {
         validator: function (v: string) {
-          return /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(v);
+          return /^-?([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(v);
         },
-        message: "sendOnHour must be in HH:mm format",
+        message: "sendOnHour must be in HH:mm or -HH:mm format",
       },
     },
     messageTemplate: {

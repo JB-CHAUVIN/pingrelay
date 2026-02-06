@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="tech : pm2 config">
-      <change afterPath="$PROJECT_DIR$/cron.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/stripe/create-checkout/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/stripe/create-checkout/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/ButtonCheckout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/ButtonCheckout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/DashboardLayout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/DashboardLayout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Sidebar/Sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Sidebar/Sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/libs/next-auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/libs/next-auth.ts" afterDir="false" />
+    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="tech : cron">
+      <change beforePath="$PROJECT_DIR$/web/app/api/send-messages/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/send-messages/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/components/_features/Dashboard/Templates/TemplateFormModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/_features/Dashboard/Templates/TemplateFormModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/libs/message-sort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/libs/message-sort.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/libs/validators/template.validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/libs/validators/template.validator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/models/Message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/Message.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/models/Template.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/models/Template.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +125,7 @@
       <workItem from="1770281387549" duration="5146000" />
       <workItem from="1770288941894" duration="13576000" />
       <workItem from="1770366399748" duration="896000" />
-      <workItem from="1770367314456" duration="11794000" />
+      <workItem from="1770367314456" duration="13939000" />
     </task>
     <task id="LOCAL-00001" summary="tech : init project">
       <option name="closed" value="true" />
@@ -249,7 +247,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770386361120</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="tech : cron">
+      <option name="closed" value="true" />
+      <created>1770387811055</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1770387811055</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -313,6 +319,7 @@
     <MESSAGE value="tech : fix payments" />
     <MESSAGE value="feat : premium" />
     <MESSAGE value="tech : pm2 config" />
-    <option name="LAST_COMMIT_MESSAGE" value="tech : pm2 config" />
+    <MESSAGE value="tech : cron" />
+    <option name="LAST_COMMIT_MESSAGE" value="tech : cron" />
   </component>
 </project>

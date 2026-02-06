@@ -1,7 +1,8 @@
 import { z } from "zod";
 
 const sendOnDayRegex = /^(-?([1-2]?[0-9]|30)|0)$/;
-const sendOnHourRegex = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/;
+const sendOnHourFixedRegex = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/;
+const sendOnHourRelativeRegex = /^-?([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/;
 
 const optionalUrlSchema = z
   .string()
@@ -28,9 +29,7 @@ export const templateMessageSchema = z.object({
       return num >= -30 && num <= 30;
     }, "Day must be between -30 and +30"),
 
-  sendOnHour: z
-    .string()
-    .regex(sendOnHourRegex, "Invalid time format. Must be HH:mm"),
+  sendOnHour: z.string(),
 
   messageTemplate: z
     .string()
@@ -39,6 +38,24 @@ export const templateMessageSchema = z.object({
 
   image: optionalUrlSchema,
   video: optionalUrlSchema,
+}).superRefine((data, ctx) => {
+  if (data.sendTimeType === "relative_time") {
+    if (!sendOnHourRelativeRegex.test(data.sendOnHour)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Invalid time format. Must be HH:mm or -HH:mm",
+        path: ["sendOnHour"],
+      });
+    }
+  } else {
+    if (!sendOnHourFixedRegex.test(data.sendOnHour)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Invalid time format. Must be HH:mm",
+        path: ["sendOnHour"],
+      });
+    }
+  }
 });
 
 export const templateCreateSchema = z.object({
