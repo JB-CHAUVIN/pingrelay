@@ -2,7 +2,7 @@
 
 import config from "@/config";
 import ButtonCheckout from "./ButtonCheckout";
-import { useDictionary } from "@/i18n/dictionary-provider";
+import {useDictionary} from "@/i18n/dictionary-provider";
 
 // <Pricing/> displays the pricing plans for your app
 // It's your Stripe config in config.js.stripe.plans[] that will be used to display the plans
@@ -94,7 +94,7 @@ const Pricing = () => {
                   </ul>
                 )}
                 <div className="space-y-2">
-                  <ButtonCheckout priceId={plan.priceId} />
+                  <ButtonCheckout priceId={plan.priceId} mode={'subscription'} />
 
                   <p className="flex items-center justify-center gap-2 text-sm text-center text-base-content/80 font-medium relative">
                     {dict.pricing.payOnce}

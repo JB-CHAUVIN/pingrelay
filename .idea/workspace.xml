@@ -6,41 +6,40 @@
   <component name="ChangeListManager">
     <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : languages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/dashboard/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/dashboard/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/.env" beforeDir="false" afterPath="$PROJECT_DIR$/web/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/app/[lang]/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/[articleId]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/Avatar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/BadgeCategory.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/CardArticle.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/CardCategory.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/HeaderBlog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/content.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/images/authors/marc.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/author/[authorId]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/category/[categoryId]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/blog/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/phones/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/schedules/[id]/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/schedules/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/templates/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/llms.txt/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/llms.txt/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/privacy-policy/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/sitemap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/(root)/sitemap.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/tos/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/api/stripe/create-checkout/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/stripe/create-checkout/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/components/Pricing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/Pricing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="183" />
+    <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JB-CHAUVIN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JB-CHAUVIN/pingrelay.git&quot;,
+    &quot;accountId&quot;: &quot;8b296c4c-1d06-4bac-9591-48e7e792a1b4&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -50,30 +49,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "js.debugger.nextJs.config.created.client": "true",
-    "js.debugger.nextJs.config.created.server": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/Users/cegedim/Documents/Perso/Perso/pingrelay/_legacy",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "/Users/cegedim/Documents/Perso/Perso/pingrelay/web/node_modules/prettier",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "/Users/cegedim/Documents/Perso/Perso/pingrelay/web/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
+    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/cegedim/Documents/Perso/Perso/pingrelay/_legacy&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/cegedim/Documents/Perso/Perso/pingrelay/web/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/jbchauvin/Documents/P/pr/web/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecapUselessUpdatesCounter">
+    <option name="suspendCountdown" value="7" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/_legacy" />
@@ -102,6 +107,13 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
+      </set>
+    </attachedChunks>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="" />
@@ -113,6 +125,8 @@
       <workItem from="1770235837502" duration="1869000" />
       <workItem from="1770281387549" duration="5146000" />
       <workItem from="1770288941894" duration="13576000" />
+      <workItem from="1770366399748" duration="896000" />
+      <workItem from="1770367314456" duration="2916000" />
     </task>
     <task id="LOCAL-00001" summary="tech : init project">
       <option name="closed" value="true" />

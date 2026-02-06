@@ -114,10 +114,6 @@ progress::-webkit-progress-value {
   color: rgb(156 163 175) !important;
 }
 
-.btn {
-  text-transform: capitalize !important;
-}
-
 /* Utility classes for PingRelay branding */
 .whatsapp-gradient {
   background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);

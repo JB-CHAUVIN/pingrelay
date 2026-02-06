@@ -106,7 +106,7 @@ export default async function Dashboard({
       <div className="max-w-7xl mx-auto p-4 md:p-8 space-y-8">
         {/* Hero Section */}
         <div className="text-center space-y-4 py-8">
-          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent p-10">
             {dict.dashboard.welcome}
           </h1>
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto">

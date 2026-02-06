@@ -43,6 +43,8 @@ export async function POST(req: NextRequest) {
       user = await User.findById(String(id));
     }
 
+    console.log('[INFO] Price checkout', body);
+
     const stripeSessionURL = await createCheckout({
       priceId,
       mode,
@@ -55,6 +57,8 @@ export async function POST(req: NextRequest) {
       // If you send coupons from the frontend, you can pass it here
       // couponId: body.couponId,
     });
+
+    console.log('[INFO] stripeSessionURL', stripeSessionURL);
 
     return NextResponse.json({ url: stripeSessionURL });
   } catch (e) {
