@@ -1,8 +1,10 @@
+const path = require("path");
+
 module.exports = {
   apps: [
     {
       name: "pingrelay-web",
-      cwd: "./web",
+      cwd: path.join(__dirname, "web"),
       script: "node_modules/.bin/next",
       args: "start",
       env: {
