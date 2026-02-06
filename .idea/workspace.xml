@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : languages">
+    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : stripe payments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/.env" beforeDir="false" afterPath="$PROJECT_DIR$/web/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/.env" beforeDir="false" afterPath="$PROJECT_DIR$/web/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/web/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/app/[lang]/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/api/stripe/create-checkout/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/api/stripe/create-checkout/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/components/Pricing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/components/Pricing.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +76,7 @@
   }
 }</component>
   <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="7" />
+    <option name="suspendCountdown" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -126,7 +125,7 @@
       <workItem from="1770281387549" duration="5146000" />
       <workItem from="1770288941894" duration="13576000" />
       <workItem from="1770366399748" duration="896000" />
-      <workItem from="1770367314456" duration="2916000" />
+      <workItem from="1770367314456" duration="6246000" />
     </task>
     <task id="LOCAL-00001" summary="tech : init project">
       <option name="closed" value="true" />
@@ -192,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1770323709197</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="feat : stripe payments">
+      <option name="closed" value="true" />
+      <created>1770374430583</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1770374430584</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,6 +258,7 @@
     <MESSAGE value="feat : dashboard" />
     <MESSAGE value="ui : better design" />
     <MESSAGE value="feat : languages" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : languages" />
+    <MESSAGE value="feat : stripe payments" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : stripe payments" />
   </component>
 </project>

@@ -7,7 +7,8 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "stripe-webhook": "stripe listen --forward-to localhost:2203/api/webhook/stripe --api-key sk_test_51Sxl1rIA3FdrbelqByCtrhEMFyPk8sSWun4m0jtXjGCmigiOJPUQAPxOrQDgj4qQR2gEgoN6h6CI8WEHqT59qfV800m1rlFbRq"
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.10.0",

@@ -29,7 +29,7 @@ const config = {
         priceId:
           process.env.NODE_ENV === "development"
             ? "price_1SxmD6IA3FdrbelqLz4oZhsA"
-            : "price_456",
+            : "price_1SxmU7I4zii1NCoojQfFyfkX",
         //  REQUIRED - Name of the plan, displayed on the pricing page
         name: "Starter",
         // A friendly description of the plan, displayed on the pricing page. Tip: explain why this plan and not others
@@ -51,7 +51,7 @@ const config = {
         priceId:
           process.env.NODE_ENV === "development"
             ? "price_1SxmDSIA3FdrbelqblMvUapK"
-            : "price_456",
+            : "price_1SxmUiI4zii1NCooBTZDmmbj",
         // This plan will look different on the pricing page, it will be highlighted. You can only have one plan with isFeatured: true
         isFeatured: true,
         name: "Pro",

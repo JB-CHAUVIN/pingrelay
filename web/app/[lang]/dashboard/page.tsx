@@ -115,9 +115,9 @@ export default async function Dashboard({
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="stat bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-primary">
-            <div className="stat-figure text-primary">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="stat bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-primary overflow-hidden">
+            <div className="stat-figure text-primary hidden xl:block">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -141,8 +141,8 @@ export default async function Dashboard({
             </div>
           </div>
 
-          <div className="stat bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-accent">
-            <div className="stat-figure text-accent">
+          <div className="stat bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-accent overflow-hidden">
+            <div className="stat-figure text-accent hidden xl:block">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -166,8 +166,8 @@ export default async function Dashboard({
             </div>
           </div>
 
-          <div className="stat bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-secondary">
-            <div className="stat-figure text-secondary">
+          <div className="stat bg-base-100 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-l-4 border-secondary overflow-hidden">
+            <div className="stat-figure text-secondary hidden xl:block">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -198,7 +198,7 @@ export default async function Dashboard({
             <h2 className="text-3xl font-bold mb-8 text-center">
               {dict.dashboard.getStarted}
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
               {/* Step 1 */}
               <div className="card bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/30 hover:border-primary/50 transition-all hover:shadow-lg">
                 <div className="card-body items-center text-center">
