@@ -33,15 +33,18 @@ export async function POST(req: NextRequest) {
   try {
     const session = await auth();
 
+    if (!session?.user?.id) {
+      return NextResponse.json(
+        { error: "Authentication required" },
+        { status: 401 }
+      );
+    }
+
     await connectMongo();
 
     const { priceId, mode, successUrl, cancelUrl } = body;
-    
-    let user = null;
-    if (session?.user?.id) {
-      const { id } = session.user;
-      user = await User.findById(String(id));
-    }
+
+    const user = await User.findById(String(session.user.id));
 
     console.log('[INFO] Price checkout', body);
 

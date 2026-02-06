@@ -9,22 +9,23 @@ export const authOptions = {
   // Set any random key in .env.local
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
-    GoogleProvider({
-      // Follow the "Login with Google" tutorial to get your credentials
-      clientId: process.env.GOOGLE_ID!,
-      clientSecret: process.env.GOOGLE_SECRET!,
-      profile(profile) {
-        return {
-          id: profile.sub,
-          name: profile.given_name ? profile.given_name : profile.name,
-          email: profile.email,
-          image: profile.picture,
-          createdAt: new Date(),
-        };
-      },
-    }),
-    // Follow the "Login with Email" tutorial to set up your email server
-    // Requires a MongoDB database. Set MONOGODB_URI env variable.
+    ...(process.env.GOOGLE_ID && process.env.GOOGLE_SECRET
+      ? [
+          GoogleProvider({
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_SECRET,
+            profile(profile) {
+              return {
+                id: profile.sub,
+                name: profile.given_name ? profile.given_name : profile.name,
+                email: profile.email,
+                image: profile.picture,
+                createdAt: new Date(),
+              };
+            },
+          }),
+        ]
+      : []),
     ...(connectMongo
       ? [
           EmailProvider({

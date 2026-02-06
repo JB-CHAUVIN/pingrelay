@@ -38,12 +38,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen = true, onClose }) => {
         <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-3">
           <Image
             src="/logo-pingrelay-automation-whatsapp-automatisation-webinar.png"
-            alt="Logo Pingrelay - Automatisation Webinar for WhatsApp"
+            alt="Logo PingRelay - Automatisation Webinar for WhatsApp"
             width={50}
             height={50}
             className="rounded-md"
           />
-          Pingrelay
+          PingRelay
         </h2>
 
         {/* Close button for mobile */}
