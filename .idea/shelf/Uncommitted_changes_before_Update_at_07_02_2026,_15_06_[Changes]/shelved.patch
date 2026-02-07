@@ -1,0 +1,138 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"8c6baa11-8307-4726-921b-0f9aacc08a9d\" name=\"Changes\" comment=\"feat : languages\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/[lang]/dashboard/layout.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/web/app/[lang]/dashboard/layout.tsx\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/[lang]/dashboard/page.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/web/app/[lang]/dashboard/page.tsx\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/[lang]/layout.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/web/app/[lang]/layout.tsx\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/[lang]/page.tsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/web/app/[lang]/page.tsx\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/[articleId]/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/_assets/components/Avatar.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/_assets/components/BadgeCategory.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/_assets/components/CardArticle.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/_assets/components/CardCategory.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/_assets/components/HeaderBlog.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/_assets/content.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/_assets/images/authors/marc.png\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/author/[authorId]/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/category/[categoryId]/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/layout.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/blog/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/dashboard/layout.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/dashboard/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/dashboard/phones/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/dashboard/schedules/[id]/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/dashboard/schedules/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/dashboard/templates/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/llms.txt/route.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/web/app/llms.txt/route.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/privacy-policy/page.tsx\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/sitemap.ts\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/web/app/(root)/sitemap.ts\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/web/app/tos/page.tsx\" beforeDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;associatedIndex&quot;: 3\n}</component>\n  <component name=\"ProjectId\" id=\"399jlOvPBziN5fLdqLiExvFj8cp\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1\": \"true\",\n    \"git-widget-placeholder\": \"main\",\n    \"js.debugger.nextJs.config.created.client\": \"true\",\n    \"js.debugger.nextJs.config.created.server\": \"true\",\n    \"junie.onboarding.icon.badge.shown\": \"true\",\n    \"last_opened_file_path\": \"/Users/cegedim/Documents/Perso/Perso/pingrelay/_legacy\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"prettierjs.PrettierConfiguration.Package\": \"/Users/cegedim/Documents/Perso/Perso/pingrelay/web/node_modules/prettier\",\n    \"settings.editor.selected.configurable\": \"project.propVCSSupport.DirectoryMappings\",\n    \"to.speed.mode.migration.done\": \"true\",\n    \"ts.external.directory.path\": \"/Users/cegedim/Documents/Perso/Perso/pingrelay/web/node_modules/typescript/lib\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  }\n}]]></component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/_legacy\" />\n      <recent name=\"$PROJECT_DIR$/models\" />\n      <recent name=\"$PROJECT_DIR$/app/api\" />\n      <recent name=\"$PROJECT_DIR$/app/dashboard\" />\n      <recent name=\"$PROJECT_DIR$/app/dashboard/templates\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/web\" />\n      <recent name=\"$PROJECT_DIR$/components/_features\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"npm.Next.js: server-side\">\n    <configuration name=\"Next.js: debug client-side\" type=\"JavascriptDebugType\" uri=\"http://localhost:3000/\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"Next.js: server-side\" type=\"js.build_tools.npm\">\n      <package-json value=\"$PROJECT_DIR$/package.json\" />\n      <command value=\"run\" />\n      <scripts>\n        <script value=\"dev\" />\n      </scripts>\n      <node-interpreter value=\"project\" />\n      <envs />\n      <method v=\"2\" />\n    </configuration>\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"8c6baa11-8307-4726-921b-0f9aacc08a9d\" name=\"Changes\" comment=\"\" />\n      <created>1770115330711</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1770115330711</updated>\n      <workItem from=\"1770115332226\" duration=\"12267000\" />\n      <workItem from=\"1770235837502\" duration=\"1869000\" />\n      <workItem from=\"1770281387549\" duration=\"5146000\" />\n      <workItem from=\"1770288941894\" duration=\"13576000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"tech : init project\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1770130052353</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1770130052353</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"feat : scan phne\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1770237745298</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1770237745298</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"feat : many optimizations\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1770287169655</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1770287169655</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"feat : better templating handling\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1770319569505</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1770319569505</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"feat : modal gray out\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1770320262473</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1770320262473</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"feat : dashboard\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1770321140362</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1770321140362</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"ui : better design\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1770321862803</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1770321862803</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"feat : languages\">\n      <option name=\"closed\" value=\"true\" />\n      <created>1770323709197</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1770323709197</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"9\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"OPEN_GENERIC_TABS\">\n      <map>\n        <entry key=\"d85a689d-f634-43a4-9f2e-e6c2112d3f70\" value=\"TOOL_WINDOW\" />\n      </map>\n    </option>\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n        <entry key=\"d85a689d-f634-43a4-9f2e-e6c2112d3f70\">\n          <value>\n            <State>\n              <option name=\"FILTERS\">\n                <map>\n                  <entry key=\"branch\">\n                    <value>\n                      <list>\n                        <option value=\"HEAD\" />\n                      </list>\n                    </value>\n                  </entry>\n                  <entry key=\"roots\">\n                    <value>\n                      <list>\n                        <option value=\"$PROJECT_DIR$/web\" />\n                      </list>\n                    </value>\n                  </entry>\n                </map>\n              </option>\n              <option name=\"SHOW_ONLY_AFFECTED_CHANGES\" value=\"true\" />\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <ignored-roots>\n      <path value=\"$PROJECT_DIR$/web\" />\n    </ignored-roots>\n    <MESSAGE value=\"tech : init project\" />\n    <MESSAGE value=\"feat : scan phne\" />\n    <MESSAGE value=\"feat : many optimizations\" />\n    <MESSAGE value=\"feat : better templating handling\" />\n    <MESSAGE value=\"feat : modal gray out\" />\n    <MESSAGE value=\"feat : dashboard\" />\n    <MESSAGE value=\"ui : better design\" />\n    <MESSAGE value=\"feat : languages\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"feat : languages\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b5c2d7511c7d9cffc95b5ca1cd57c8bc4c1d315f)
++++ b/.idea/workspace.xml	(date 1770472939148)
+@@ -4,36 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="feat : languages">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/dashboard/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/dashboard/layout.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/dashboard/page.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/layout.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/[lang]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/[lang]/page.tsx" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/[articleId]/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/Avatar.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/BadgeCategory.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/CardArticle.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/CardCategory.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/components/HeaderBlog.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/content.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/_assets/images/authors/marc.png" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/author/[authorId]/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/category/[categoryId]/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/layout.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/blog/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/layout.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/phones/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/schedules/[id]/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/schedules/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/dashboard/templates/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/llms.txt/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/llms.txt/route.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/privacy-policy/page.tsx" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/sitemap.ts" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/(root)/sitemap.ts" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/web/app/tos/page.tsx" beforeDir="false" />
+-    </list>
++    <list default="true" id="8c6baa11-8307-4726-921b-0f9aacc08a9d" name="Changes" comment="tech : SEO and translations" />
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -50,30 +21,30 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ModuleVcsDetector.initialDetectionPerformed": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+-    "git-widget-placeholder": "main",
+-    "js.debugger.nextJs.config.created.client": "true",
+-    "js.debugger.nextJs.config.created.server": "true",
+-    "junie.onboarding.icon.badge.shown": "true",
+-    "last_opened_file_path": "/Users/cegedim/Documents/Perso/Perso/pingrelay/_legacy",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "prettierjs.PrettierConfiguration.Package": "/Users/cegedim/Documents/Perso/Perso/pingrelay/web/node_modules/prettier",
+-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+-    "to.speed.mode.migration.done": "true",
+-    "ts.external.directory.path": "/Users/cegedim/Documents/Perso/Perso/pingrelay/web/node_modules/typescript/lib",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
++    &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
++    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;/Users/cegedim/Documents/Perso/Perso/pingrelay/_legacy&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/Users/cegedim/Documents/Perso/Perso/pingrelay/web/node_modules/prettier&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
++    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
++    &quot;ts.external.directory.path&quot;: &quot;/Users/cegedim/Documents/Perso/Perso/pingrelay/web/node_modules/typescript/lib&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/_legacy" />
+@@ -112,7 +83,7 @@
+       <workItem from="1770115332226" duration="12267000" />
+       <workItem from="1770235837502" duration="1869000" />
+       <workItem from="1770281387549" duration="5146000" />
+-      <workItem from="1770288941894" duration="13576000" />
++      <workItem from="1770288941894" duration="14209000" />
+     </task>
+     <task id="LOCAL-00001" summary="tech : init project">
+       <option name="closed" value="true" />
+@@ -178,7 +149,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1770323709197</updated>
+     </task>
+-    <option name="localTasksCounter" value="9" />
++    <task id="LOCAL-00009" summary="tech : SEO and translations">
++      <option name="closed" value="true" />
++      <created>1770324425259</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1770324425259</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -237,6 +216,7 @@
+     <MESSAGE value="feat : dashboard" />
+     <MESSAGE value="ui : better design" />
+     <MESSAGE value="feat : languages" />
+-    <option name="LAST_COMMIT_MESSAGE" value="feat : languages" />
++    <MESSAGE value="tech : SEO and translations" />
++    <option name="LAST_COMMIT_MESSAGE" value="tech : SEO and translations" />
+   </component>
+ </project>
+\ No newline at end of file
