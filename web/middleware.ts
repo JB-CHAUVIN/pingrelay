@@ -3,37 +3,41 @@ import type { NextRequest } from "next/server";
 import { i18n } from "./i18n/config";
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+  const url = request.nextUrl.clone();
+  const pathname = url.pathname;
 
-  // Check if there is any supported locale in the pathname
-  const pathnameIsMissingLocale = i18n.locales.every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  );
+  // 🔒 Rediriger vers HTTPS si on est sur HTTP
+  if (request.nextUrl.protocol === "http:") {
+    url.protocol = "https:";
+    return NextResponse.redirect(url);
+  }
 
   // Skip middleware for:
   // - API routes
   // - Static files (_next/static, _next/image, favicon.ico, etc.)
   // - SEO files (sitemap.xml, robots.txt, llms.txt)
   if (
-    pathname.startsWith("/api/") ||
-    pathname.startsWith("/_next/") ||
-    pathname.includes("/favicon") ||
-    pathname.includes(".") ||
-    pathname.startsWith("/sitemap") ||
-    pathname.startsWith("/robots") ||
-    pathname.startsWith("/llms")
+      pathname.startsWith("/api/") ||
+      pathname.startsWith("/_next/") ||
+      pathname.includes("/favicon") ||
+      pathname.includes(".") ||
+      pathname.startsWith("/sitemap") ||
+      pathname.startsWith("/robots") ||
+      pathname.startsWith("/llms")
   ) {
     return NextResponse.next();
   }
 
+  // Check if there is any supported locale in the pathname
+  const pathnameIsMissingLocale = i18n.locales.every(
+      (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+  );
+
   // Redirect if there is no locale
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
-
-    // Redirect to the same path with locale prefix
-    return NextResponse.redirect(
-      new URL(`/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`, request.url)
-    );
+    url.pathname = `/${locale}${pathname.startsWith("/") ? "" : "/"}${pathname}`;
+    return NextResponse.redirect(url);
   }
 
   return NextResponse.next();
@@ -50,8 +54,8 @@ function getLocale(request: NextRequest): string {
   const acceptLanguage = request.headers.get("accept-language");
   if (acceptLanguage) {
     const languages = acceptLanguage
-      .split(",")
-      .map((lang) => lang.split(";")[0].trim().toLowerCase());
+        .split(",")
+        .map((lang) => lang.split(";")[0].trim().toLowerCase());
 
     for (const lang of languages) {
       // Check for exact match (e.g., "fr")
@@ -71,7 +75,6 @@ function getLocale(request: NextRequest): string {
 }
 
 export const config = {
-  // Matcher ignoring `/_next/` and `/api/`
   matcher: [
     "/((?!api|_next/static|_next/image|favicon.ico|sitemap|robots|llms).*)",
   ],
