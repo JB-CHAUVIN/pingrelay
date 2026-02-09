@@ -7,7 +7,6 @@
 
 const path = require("path");
 const fs = require("fs");
-const { execSync } = require("child_process");
 
 // Load .env from web/
 const envPath = path.join(__dirname, "web", ".env");
@@ -67,12 +66,16 @@ function shouldRunSitemap() {
   }
 }
 
-function generateSitemap() {
+async function generateSitemap() {
   try {
-    console.log(`[${new Date().toISOString()}] sitemap: generating...`);
-    execSync("npx next-sitemap", { cwd: path.join(__dirname, "web"), stdio: "pipe" });
-    fs.writeFileSync(SITEMAP_LOCK, String(Date.now()));
-    console.log(`[${new Date().toISOString()}] sitemap: done`);
+    console.log(`[${new Date().toISOString()}] sitemap: fetching...`);
+    const res = await fetch(`${BASE_URL}/sitemap.xml`);
+    if (res.ok) {
+      fs.writeFileSync(SITEMAP_LOCK, String(Date.now()));
+      console.log(`[${new Date().toISOString()}] sitemap: done (${res.status})`);
+    } else {
+      console.error(`[${new Date().toISOString()}] sitemap error: HTTP ${res.status}`);
+    }
   } catch (err) {
     console.error(`[${new Date().toISOString()}] sitemap error:`, err.message);
   }
@@ -82,7 +85,7 @@ async function main() {
   await sendMessages();
 
   if (shouldRunSitemap()) {
-    generateSitemap();
+    await generateSitemap();
   }
 }
 
